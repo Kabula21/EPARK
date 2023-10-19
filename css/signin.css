@@ -7,7 +7,7 @@
 }
 
 body {
-  background-image: url("../images/bg-signin.jpg");
+  background-image: url("../images/background.png");
   background-repeat: no-repeat;
   background-size: cover;
   background-attachment: fixed
@@ -16,16 +16,17 @@ body {
 
 .container {
   display: flex;
-  justify-content: center;
+  justify-content: left;
   width: 100%;
-  margin-top: 100px;
+  margin-top: 50px;
 }
 
 .card {
-  background-color: #ffffff80;
-  padding: 30px;
-  border-radius: 4%;
-  box-shadow: 3px 3px 1px 0px #00000060
+  background-color: #ffffffd2;
+  padding: 80px;
+  border-radius: 2%;
+  box-shadow: 3px 3px 1px 0px #00000023
+  
 }
 
 h1{
@@ -84,8 +85,9 @@ button{
   padding: 7px;
   font-weight: bold;
   font-size: 12pt;
+  width: 150px;
   margin-top: 20px;
-  border-radius: 4px;
+  border-radius: 50px;
   cursor: pointer;
   outline: none;
   transition: all .4s ease-out;
@@ -104,7 +106,7 @@ button:hover{
 hr{
   margin-top: 10%;
   margin-bottom: 10%;
-  width: 60%;
+  width: 100%;
 }
 
 p{
