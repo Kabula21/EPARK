@@ -3,12 +3,12 @@
   <head>
      <!-- INICIO META TAGS -->
     <meta charset="UTF-8" />
-    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <link rel="shortcut icon" href="images/logoepark.png">
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
      <!-- FIM META TAGS -->
 
     <!-- INICIO ARQUIVOS CSS -->
-    <link rel="shortcut icon" href=".images/logoepark.png">
+    
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css"/>
     <link rel="stylesheet" href="../css/signin.css"/>
     
@@ -32,20 +32,54 @@
       <form>
       <div class="card">
         <img src="../images/logo.png" height="150px">
-        <h1>Login</h1>
+        <h1>Painel</h1>
       <div id="msgError"></div>
-      <div class="label-float">
-          <input type="text" id="login" paceholder="login">
-          <label id="userLabel" for="usuario">Usuario</label>
-        </div>
-      <div class="label-float">
-          <input type="password" id="senha" paceholder="senha">
-          <label id="senhaLabel" for="senha">Senha</label>
-        </div>
-      <div class="justify-center">
-          <button type="submit" onclick="logar(); return false">Entrar</button>
-        </div>
-      </form>
+      <div class="box">
+        <h5 align="center">Uninassau Epark</h5>
+        <div class="progress-container">
+          <div class="progress-bar" id="progress-bar">0%</div>
+      </div>
+<!-- Botão para Gerar Relatorio -->
+
+<!-- Botão para abrir o modal -->
+<h5 align="right">
+  Relatório
+<button class="open-modal-button" onclick="openModal()">Gerar</button>
+</h5>
+
+<!-- Modal -->
+
+<div id="modal" class="modal">
+    <div class="modal-content">
+        <h2>Relatório de Vagas de Estacionamento</h2>
+        <br>
+        <table id="linha-vertical" cellspacing="25px">
+            <tr>
+                <th>Entrada</th>
+                <th>Saída</th>
+                <th>Livres</th>
+                <th>Total</th>
+            </tr>
+            <tr>
+                <td>50</td>
+                <td>20</td>
+                <td>30</td>
+                <td>100</td>
+            </tr>
+        </table>
+        <div id="linha-horizontal"></div>
+        <button class="open-modal-button" onclick="closeModal()">Fechar</button>
+    </div>
+</div>
+
+
+
+
+
+
+<!--FIM do Botao de Gerar Relatorio-->
+      </div>
+    </form>
       <hr>
       <h6 class="justify-center">Powered by TTGGroup</h6>
       </div>
