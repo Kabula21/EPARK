@@ -1,32 +1,46 @@
 @import url('https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,100;0,300;0,400;0,500;0,700;0,900;1,100;1,300;1,400;1,500;1,700;1,900&display=swap');
-
+/* INICIO REGRAS CSS COMUNS À TODOS OS DISPOSITIVOS */
 * {
   margin: 0;
   padding: 0;
   font-family: 'Roboto', sans-serif;
+  
 }
 
 body {
-  background-image: url("../images/background.png");
+  background-image: url("../images/background2.png");
   background-repeat: no-repeat;
   background-size: cover;
   background-attachment: fixed
   
 }
+.texto{
+  display:flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+  margin-left: 250px;
+  margin-top: -500px;
+  width: 1500px;
+  font-size: 80px;
+  font-family:'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+}
 
+/* INICIO REGRAS CSS DO CONTAINER */
 .container {
-  display: flex;
+  display:flex;
   justify-content: left;
-  width: 100%;
-  margin-top: 50px;
+  width: 100px;
+  margin-top: 60px;
+  margin-left: 200px;
+  
 }
 
 .card {
-  background-color: #ffffffd2;
-  padding: 80px;
+  background-color: #ffffff;
+  padding: 90px;
   border-radius: 2%;
-  box-shadow: 3px 3px 1px 0px #00000023
-  
+  box-shadow: 3px 3px 1px 0px #00000036;
 }
 
 h1{
@@ -34,6 +48,7 @@ h1{
   margin-bottom: 20px;
   color: #272262
 }
+
 
 .label-float input{
   width: 100%;
@@ -126,14 +141,6 @@ a:hover{
   color: #272262;
 }
 
-.fa-eye{
-  position: absolute;
-  top: 15px;
-  right: 10px;
-  cursor: pointer;
-  color: #272262;
-}
-
  #msgError{
   text-align: center;
   color: #ff0000;
@@ -142,3 +149,29 @@ a:hover{
   border-radius: 4px;
   display: none;
 }
+
+/* FIM DAS REGRAS CSS DO CONTAINER */
+
+/* INICIO REGRAS CSS DO FOOTER E LOGO NASSAU */
+
+#footer_copyright {
+  display: flex;
+  justify-content: center;
+  font-size: 15px;
+	color: #000000;	
+	font-weight: 100px;
+  margin-top: 380px;
+  
+  
+}
+#rodape{
+  position: absolute;
+  bottom: 0;
+  right: 0;
+  object-fit: cover;
+  
+}
+
+/* FIM REGRAS CSS DO FOOTER E LOGO NASSAU */
+
+/* FIM REGRAS CSS COMUNS À TODOS OS DISPOSITIVOS */

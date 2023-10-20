@@ -1,38 +1,72 @@
 <!DOCTYPE html>
 <html lang="pt-br">
   <head>
+     <!-- INICIO META TAGS -->
     <meta charset="UTF-8" />
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+     <!-- FIM META TAGS -->
+
+    <!-- INICIO ARQUIVOS CSS -->
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css"/>
     <link rel="stylesheet" href="../css/signin.css"/>
+    <!-- FIM ARQUIVOS CSS -->
+
+    <!-- INICIO TITULO DO DOCUMENTO -->
     <title>EPARK-Ltda</title>
+    <!-- FIM TITULO DO DOCUMENTO -->
   </head>
   <body>
+     <!-- INICIO TITULO DA PÁGINA -->
+     
+     <!-- LOGO DA NASSAU RODAPÉ -->
+    <div id="rodape">
+          <img src="../images/uninassau-logo.png"/> 
+  </div> 
+  <!-- FIM LOGO DA NASSAU RODAPÉ -->
+       
+  <!-- ÁREA DO MENU CONTAINER -->
     <div class="container">
+      
       <div class="card">
-        <img src="../images/logo.png" height="100px">
+        <img src="../images/logo.png" height="150px">
         <h1>Login</h1>
-        <div id="msgError"></div>
-
-        <div class="label-float">
+      <div id="msgError"></div>
+      <div class="label-float">
           <input type="text" id="usuario" paceholder="" required />
           <label id="userLabel" for="usuario">Usuario</label>
         </div>
-
-        <div class="label-float">
+      <div class="label-float">
           <input type="password" id="senha" paceholder="" required />
           <label id="senhaLabel" for="senha">Senha</label>
-          <i class="fa fa-eye" aria-hidden="true"></i>
         </div>
-
-        <div class="justify-center">
+      <div class="justify-center">
           <button onclick="entrar()">Entrar</button>
         </div>
           <hr>
-          <h6>Powered by TTGGroup</h6>
+      <h6 class="justify-center">Powered by TTGGroup</h6>
+   
+      </div>
     </div>
-    <footer><address>Todos os Direitos Reservados</address></footer>
+    <!-- FIM ÁREA DO MENU CONTAINER -->
+
+    <!-- INÍCIO ÁREA DO TEXTO PRINCIPAL -->
+
+    <div class="texto">Gerenciando seu<br>Estabelecimento<br>com Segurança</div>
+
+    <!-- FIM ÁREA DO TEXTO PRINCIPAL -->
+    <br>
+<br>
+    <!-- TEXTO DOS DIREITOS FOOTER -->
+    <footer>
+      <div id="footer_copyright">
+        <h6>Todos os direitos Reservados - Copyright © 2023</h6>
+      </div>
+    </footer>
+    <!-- FIM TEXTO DOS DIREITOS FOOTER -->
+
     <script src="./js/signin.js"></script>
+   
+   <!-- FIM TITULO DA PÁGINA -->
   </body>
 </html>
