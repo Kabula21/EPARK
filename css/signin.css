@@ -39,7 +39,7 @@ body {
 
 
 .box{
-  max-width: 30vh;
+  max-width: 40vh;
   max-height: 25vh;
   justify-content: center;
   border: 1px solid rgb(0, 0, 0);
@@ -110,7 +110,7 @@ button{
   padding: 7px;
   font-weight: bold;
   font-size: 12pt;
-  width: 150px;
+  width: 180px;
   margin-top: 20px;
   border-radius: 50px;
   cursor: pointer;
@@ -201,16 +201,54 @@ a:hover{
 
  /* Estilos para o botão de abrir o modal */
  .open-modal-button {
+  position: absolute;
   background-color: transparent;
   border-color: #272262;
   color: #272262;
-  padding: 5px;
+  padding: 8px;
   font-weight: bold;
   font-size: 10pt;
-  width: 60px;
+  width: 80px;
   border-radius: 50px;
   transition: all .4s ease-out;
+  left: 398px;
 }
+
+ /* Estilos para o botão de fechar o modal */
+ .close-modal-button {
+  position: absolute;
+  top: -25px;
+  right: -10px;
+  width: 30px;
+  height: 30px;
+  background-color: white;
+  border-color: #272262;
+  color: #272262;
+  padding: 8px;
+  font-weight: bold;
+  font-size: 10pt;
+  border-radius: 50px;
+  border: 0;
+  transition: all .4s ease-out;
+  cursor: pointer;
+}
+
+.printbtn{
+  position: absolute;
+  top: 200px;
+  background-color: transparent;
+  border-color: #272262;
+  color: #272262;
+  padding: 8px;
+  font-weight: bold;
+  font-size: 10pt;
+  width: 70px;
+  border-radius: 10px;
+  transition: all .4s ease-out;
+  left: 480px;
+  cursor: pointer;
+}
+
 
 /* Estilos para o modal (inicialmente oculto) */
 .modal {
@@ -226,7 +264,7 @@ a:hover{
 
 /* Estilos para o conteúdo do modal */
 .modal-content {
-  position:fixed;
+  position:absolute;
   top: 50%;
   left: 50%;
   transform: translate(-50%, -50%);
@@ -242,7 +280,7 @@ a:hover{
   
 }
 #linha-horizontal {
-  width: 300px;
+  width: 500px;
   border: 1px solid #000000;
 }
 
