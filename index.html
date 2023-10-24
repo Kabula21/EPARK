@@ -29,23 +29,24 @@
        
   <!-- ÁREA DO MENU CONTAINER -->
     <div class="container">
-      <form>
+     <form>
       <div class="card">
         <img src="../images/logo.png" height="150px">
         <h1>Login</h1>
+        <br>
       <div id="msgError"></div>
       <div class="label-float">
-          <input type="text" id="login" paceholder="login">
-          <label id="userLabel" for="usuario">Usuario</label>
-        </div>
+        <input type="text" id="login" paceholder="login" required />
+        <label id="userLabel" for="usuario">Usuario</label>
+      </div>
       <div class="label-float">
-          <input type="password" id="senha" paceholder="senha">
-          <label id="senhaLabel" for="senha">Senha</label>
-        </div>
+        <input type="password" id="senha" paceholder="senha" required />
+        <label id="senhaLabel" for="senha">Senha</label>
+      </div>
       <div class="justify-center">
           <button type="submit" onclick="logar(); return false">Entrar</button>
-        </div>
-      </form>
+        </div>      
+</form>
       <hr>
       <h6 class="justify-center">Powered by TTGGroup</h6>
       </div>
@@ -57,8 +58,7 @@
     <div class="texto">Gerenciando seu<br>Estabelecimento<br>com Segurança</div>
 
     <!-- FIM ÁREA DO TEXTO PRINCIPAL -->
-    <br>
-<br>
+    
     <!-- TEXTO DOS DIREITOS FOOTER -->
     <footer>
       <div id="footer_copyright">
