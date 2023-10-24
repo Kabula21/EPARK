@@ -238,7 +238,7 @@ a:hover{
 
 .printbtn{
   position: absolute;
-  top: 200px;
+  top: 300px;
   background-color: transparent;
   border-color: #272262;
   color: #272262;
@@ -248,7 +248,7 @@ a:hover{
   width: 70px;
   border-radius: 10px;
   transition: all .4s ease-out;
-  left: 480px;
+  left: 560px;
   cursor: pointer;
 }
 
@@ -272,8 +272,9 @@ a:hover{
   left: 50%;
   transform: translate(-50%, -50%);
   background-color: #fff;
-  padding: 50px;
+  padding: 80px;
   box-shadow: 0 0 10px rgba(0, 0, 0, 0.3);
+  border-radius: 5px;
 }
 
 
@@ -283,7 +284,7 @@ a:hover{
   
 }
 #linha-horizontal {
-  width: 500px;
+  width: 540px;
   border: 1px solid #000000;
 }
 
