@@ -248,7 +248,7 @@ a:hover{
   width: 70px;
   border-radius: 10px;
   transition: all .4s ease-out;
-  left: 560px;
+  left: 630px;
   cursor: pointer;
 }
 
@@ -284,7 +284,7 @@ a:hover{
   
 }
 #linha-horizontal {
-  width: 540px;
+  width: 620px;
   border: 1px solid #000000;
 }
 
