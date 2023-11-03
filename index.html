@@ -19,6 +19,7 @@
     <!-- FIM TITULO DO DOCUMENTO -->
   </head>
   <body>
+    
      <!-- INICIO TITULO DA PÁGINA -->
      
      <!-- LOGO DA NASSAU RODAPÉ -->
@@ -28,24 +29,30 @@
   <!-- FIM LOGO DA NASSAU RODAPÉ -->
        
   <!-- ÁREA DO MENU CONTAINER -->
-    <div class="container">
-     <form>
+    <div class="container" style="width: fit-content;">     
+<form>
       <div class="card">
+        <span></span>
+        <span></span>
+        <span></span>
+        <span></span>
         <img src="../images/logo.png" height="150px">
         <h1>Login</h1>
         <br>
       <div id="msgError"></div>
       <div class="label-float">
-        <input type="text" id="login" paceholder="login" required />
+        <input type="text" id="login" paceholder="login" required />        
         <label id="userLabel" for="usuario">Usuario</label>
+        <i class="bi bi-person"></i>
       </div>
       <div class="label-float">
-        <input type="password" id="senha" paceholder="senha" required />
-        <label id="senhaLabel" for="senha">Senha</label>
+        <input type="password" id="senha" paceholder="senha" required />        
+        <label id="senhaLabel" for="senha">Senha</i></label>
+        
       </div>
       <div class="justify-center">
           <button type="submit" onclick="logar(); return false">Entrar</button>
-        </div>      
+        </div>
 </form>
       <hr>
       <h6 class="justify-center">Powered by TTGGroup</h6>

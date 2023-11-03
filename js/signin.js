@@ -47,3 +47,12 @@ function closeModal() {
 document.getElementById("printButton").addEventListener("click", function() {
   window.print(); // Chame a função de impressão quando o botão for clicado
 });
+
+
+window.addEventListener("load", () => {
+  const loader = document.querySelector(".loader");
+  loader.classList.add("loader--hidden");
+  loader.addEventListener("transitioned", () => {
+    document.body.removeChild(loader);
+  });
+});

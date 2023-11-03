@@ -46,12 +46,105 @@ body {
   border-radius: 5px;
 }
 
+
+
+.bi-person{
+  margin-left: 280px;
+  font-size: 18px;
+}
+
 .card {
+  position:relative;
   background-color: #ffffff;
   padding: 90px;
-  border-radius: 2%;
+  border-radius: 1%;
   box-shadow: 3px 3px 10px 0px #0a008f73;
+  overflow: hidden;
 }
+
+
+
+.card span:first-of-type{
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 3px;
+  background: linear-gradient(to right, transparent, rgb(38, 0, 255));
+  animation: animar1 2s linear infinite; 
+}
+
+@keyframes animar1{
+  0%{
+    transform: translateX(-100%);
+  }
+   100% {
+    transform: translateX(100%);
+   } 
+  }
+
+.card span:nth-of-type(2){
+  position: absolute;
+  top: 0;
+  right: 0;
+  width: 3px;
+  height: 100%;
+  background: linear-gradient(to bottom, transparent, rgb(38, 0, 255));
+  animation: animar2 2s linear infinite;
+  animation-delay: 1s;
+}
+
+@keyframes animar2{
+  0%{
+    transform: translateY(-100%);
+  }
+   100% {
+    transform: translateY(100%);
+   } 
+  }
+
+  .card span:nth-of-type(3){
+    position: absolute;
+    bottom: 0;
+    right: 0;
+    width: 100%;
+    height: 3px;
+    background: linear-gradient(to left, transparent, rgb(38, 0, 255));
+    animation: animar3 2s linear infinite;
+  }
+  
+  @keyframes animar3 {
+    0%{
+      transform: translateX(100%);
+    }
+     100% {
+      transform: translateX(-100%);
+     } 
+    }
+
+.card span:last-of-type {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 3px;
+  height: 100%;
+  background: linear-gradient(to top, transparent, rgb(38, 0, 255));
+  animation: animar4 2s linear infinite;
+  animation-delay: 1s;
+}
+
+@keyframes animar4 {
+  0%{
+    transform: translateY(100%);
+  }
+   100% {
+    transform: translateY(-100%);
+   } 
+  }
+
+
+
+
 
 h1{
   text-align: center;
@@ -61,6 +154,7 @@ h1{
 
 
 .label-float input{
+  position: absolute;
   width: 100%;
   padding: 5px 5px;
   display: inline-block;
@@ -214,7 +308,7 @@ a:hover{
   width: 80px;
   border-radius: 50px;
   transition: all .4s ease-out;
-  left: 398px;
+  left: 198px;
 }
 
  /* Estilos para o botão de fechar o modal */
@@ -287,6 +381,43 @@ a:hover{
   width: 620px;
   border: 1px solid #000000;
 }
+
+/*LOADING ANIMATION*/
+.loader{
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100vw;
+  height: 100vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: #333333;
+  transition: opacity 0.75s, visibility 0.75s;
+}
+
+.loader--hidden{
+  opacity: 0;
+  visibility: hidden;
+}
+
+.loader::after{
+  content: "";
+  width: 75px;
+  height: 75px;
+  border: 15px solid #dddddd;
+  border-top-color: #020352;
+  border-radius: 50%;
+  animation: loading 0.75s ease infinite;
+}
+
+@keyframes loading {
+  from{transform: rotate(0turn)}
+  to {transform: rotate(1turn)}
+
+}
+
+
 
 
 /* FIM REGRAS CSS DO FOOTER E LOGO NASSAU */
