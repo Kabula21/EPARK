@@ -5,7 +5,10 @@
   padding: 0;
   font-family: 'Roboto', sans-serif;
   
+  
 }
+
+
 
 body {
   background-image: url("../images/background2.png");
@@ -19,7 +22,7 @@ body {
   display:flex;
   justify-content: center;
   margin-left: 250px;
-  margin-top: -500px;
+  margin-top: -550px;
   width: 1500px;
   font-size: 80px;
   font-family:'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
@@ -60,6 +63,17 @@ body {
   border-radius: 1%;
   box-shadow: 3px 3px 10px 0px #0a008f73;
   overflow: hidden;
+}
+
+.card2 {
+  position:absolute;
+  background-color: #ffffff;
+  padding: 90px;
+  border-radius: 1%;
+  box-shadow: 3px 3px 10px 0px #0a008f73;
+  width: 1100px;
+  height: 760px;
+  margin-left: 90px;
 }
 
 
@@ -142,10 +156,6 @@ body {
    } 
   }
 
-
-
-
-
 h1{
   text-align: center;
   margin-bottom: 20px;
@@ -206,6 +216,7 @@ button{
   font-size: 12pt;
   width: 180px;
   margin-top: 20px;
+  margin-left: 30px;
   border-radius: 50px;
   cursor: pointer;
   outline: none;
@@ -247,9 +258,9 @@ a:hover{
 
 .progress-container {
   border-radius: 8px;
-  max-width: 30vh;
-  max-height: 25vh;  
-  margin: 20px;
+  max-width: 300px;
+  max-height: 25px;  
+  margin: 35px;
 }
 
 .progress-bar {
@@ -260,6 +271,7 @@ a:hover{
   line-height: 20px;
   color: white;
   border-radius: 8px;
+  margin-top: -30px;
 }
 
  #msgError{
@@ -283,7 +295,7 @@ a:hover{
 	color: #000000;	
 	font-weight: 100px;
   margin-top: 340px;
-  margin-left: 750px;
+  margin-left: 650px;
   bottom: 0;
   
   
@@ -302,13 +314,14 @@ a:hover{
   background-color: transparent;
   border-color: #272262;
   color: #272262;
-  padding: 8px;
+  padding: 10px;
   font-weight: bold;
   font-size: 10pt;
-  width: 80px;
+  width: 90px;
   border-radius: 50px;
   transition: all .4s ease-out;
-  left: 198px;
+  left: 200px;
+  margin-top: 5px;
 }
 
  /* Estilos para o botão de fechar o modal */
@@ -332,7 +345,7 @@ a:hover{
 
 .printbtn{
   position: absolute;
-  top: 320px;
+  top: 250px;
   background-color: transparent;
   border-color: #272262;
   color: #272262;
@@ -364,6 +377,7 @@ a:hover{
   position:absolute;
   top: 50%;
   left: 50%;
+  width: 50vw;
   transform: translate(-50%, -50%);
   background-color: #fff;
   padding: 80px;
@@ -417,8 +431,44 @@ a:hover{
 
 }
 
+.entradaform{
+  margin-left: 430px;
+  margin-top: 40px;
+}
 
+.entry-button {
+  position: absolute;
+  background-color:green;
+  border-color: #22622b18;
+  color: #ffffff;
+  font-weight: bold;
+  font-size: 10pt;
+  width: 80px;
+  border-radius: 50px;
+  transition: all .4s ease-out;
+  left: 565px;
+  margin-top: -25px;
+}
 
+.saidaform{
+  margin-left: 695px;
+  margin-top: -302px;
+}
+
+.exit-button{
+  position: absolute;
+  background-color:red;
+  border-color: #a5050060;
+  color: #ffffff;
+  font-weight: bold;
+  font-size: 10pt;
+  width: 80px;
+  border-radius: 50px;
+  transition: all .4s ease-out;
+  left: 850px;
+  margin-top:127px;
+  
+}
 
 /* FIM REGRAS CSS DO FOOTER E LOGO NASSAU */
 
