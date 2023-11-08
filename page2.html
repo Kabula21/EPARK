@@ -13,8 +13,7 @@
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.1/font/bootstrap-icons.css">
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css"/>
     <link rel="stylesheet" href="../css/signin.css"/>
-    
-    
+    <link rel="stylesheet" href="../css/style.css"/>
     
     <!-- FIM ARQUIVOS CSS -->
 
@@ -119,36 +118,64 @@
 </div>
 </div>
 
-
-<!--CADASTRO DE ENTRADA / SAIDA --> 
+<!--CADASTRO DE ENTRADA --> 
 
 <h1 style="margin-left: 400px; margin-top: -380px;">Cadastro de Veículos</h1>
 
-<form id="entradaForm" class="entradaform">
+<div id="entradaForm" class="entradaform">
     <label for="placa">Placa:</label><br>
     <input type="text" id="placa" name="placa" required style="width: 12vw;"><br><br>
-
     <label for="dataHora">Data/Hora:</label><br>
     <input type="datetime-local" id="dataHora" name="dataHora" required style="width: 12vw;"><br><br>
-
     <label for="observacoes">Observações:</label><br>
     <textarea id="observacoes" name="observacoes" style="width: 12vw; height: 10vh;"></textarea><br><br>
-
     <button class="entry-button" id="btnEntrada" onclick="openModalentrada()">Entrada</button>
-</form>
+</div>
 
-<form id="saidaForm" class="saidaform">
+<!-- Modal de Entrada -->
+
+<div id="myModalentrada" class="modalentrada">
+  <div class="modal-content-entrada">
+      <button class="closeModalentrada" onclick="closeModalentrada()">X</button>
+      <h2>Detalhes da Entrada</h2>
+      <label for="modalPlaca">Placa:</label>
+      <span id="modalPlaca"></span><br>
+      <label for="modalDataHora">Data/Hora:</label>
+      <span id="modalDataHora"></span><br>
+      <label for="modalObservacoes">Observações:</label>
+      <span id="modalObservacoes"></span><br>
+      <button class="printButtonentradasaida" id="printButtonentrada">Imprimir</button>
+  </div>
+</div>
+
+<!--CADASTRO DE SAÍDA --> 
+
+<div id="saidaForm" class="saidaform">
   <label for="placa">Placa:</label><br>
   <input type="text" id="placa" name="placa" required style="width: 13vw;"><br><br>
-
   <label for="dataHora">Data/Hora:</label>
   <input type="datetime-local" id="dataHora" name="dataHora" required style="width: 13vw;"><br><br>
-
   <label for="valor">Valor/h:</label>
   <input type="text" id="valor" name="valor" required style="width: 7vw;" value="R$10,00" disabled>
-  
   <button class="exit-button" id="btnSaida" onclick="openModalsaida()">Saída</button>
-</form>
+  
+</div>
+
+<!-- Modal de Saída -->
+
+<div id="myModalsaida" class="modalsaida">
+  <div class="modal-content-saida">
+      <button class="closeModalsaida" onclick="closeModalsaida()">X</button>
+      <h2>Detalhes da Saída</h2>
+      <label for="modalPlaca">Placa:</label>
+      <span id="modalPlaca"></span><br>
+      <label for="modalDataHora">Data/Hora:</label>
+      <span id="modalDataHora"></span><br>
+      <label for="modalValor">Valor:</label>
+      <span id="modalValor"></span><br>
+      <button class="printButtonentradasaida" id="printButtonsaida2">Imprimir</button>
+  </div>
+</div>
 
 <!-- FIM CADASTRO DE ENTRADA / SAIDA-->
 
@@ -175,5 +202,6 @@
    <!-- FIM TITULO DA PÁGINA -->
   </body>
   <script src="../js/signin.js"></script>
+  <script src="../js/modal.js"></script>
   <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-C6RzsynM9kWDrMNeT87bh95OGNyZPhcTNXj1NW7RuBCsyN/o0jlpcV8Qyq46cDfL" crossorigin="anonymous"></script>
 </html>

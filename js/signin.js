@@ -43,7 +43,7 @@ function closeModal() {
   modal.style.display = "none";
 }
 
-// Adicione um ouvinte de evento ao botão
+// FUNÇÃO DE IMPRIMIR
 document.getElementById("printButton").addEventListener("click", function() {
   window.print(); // Chame a função de impressão quando o botão for clicado
 });
