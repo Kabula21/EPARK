@@ -59,14 +59,6 @@ window.addEventListener("load", () => {
 
 //FUNÇÃO DATA E HORA //
 
-function preencherDataHoraAtual() {
-  const dataHoraCampo = document.getElementById("dataHora");
-  const dataAtual = new Date();
-  const dataFormatada = dataAtual.toISOString().slice(0, 16); // Formato "AAAA-MM-DDTHH:MM"
-  dataHoraCampo.value = dataFormatada;
-}
 
-// Chame a função para preencher o campo automaticamente quando a página carregar
-preencherDataHoraAtual();
 
 

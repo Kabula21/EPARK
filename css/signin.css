@@ -72,10 +72,13 @@ body {
   border-radius: 1%;
   box-shadow: 3px 3px 10px 0px #0a008f73;
   width: 1100px;
-  height: 760px;
+  height: 720px;
   margin-left: 90px;
 }
 
+.table {
+  text-align: center;
+}
 
 
 .card span:first-of-type{
@@ -452,7 +455,7 @@ a:hover{
 
 .saidaform{
   margin-left: 695px;
-  margin-top: -302px;
+  margin-top: -290px;
 }
 
 .exit-button{
@@ -466,7 +469,7 @@ a:hover{
   border-radius: 50px;
   transition: all .4s ease-out;
   left: 850px;
-  margin-top:127px;
+  margin-top:118px;
   
 }
 

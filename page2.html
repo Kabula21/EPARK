@@ -45,27 +45,22 @@
       <div class="box">
         <h5 align="center">Epark Uninassau</h5>
         <br>
-        <table align="center" cellspacing="10px">
-          <tr align="center'">
+        <table class="table"  cellspacing="10px">
+          <tr>
             <th>Ocupadas</th>
             <td> ---> 50 --- <i class="bi bi-car-front-fill"></i>
-            
           </tr>
-          <tr align="center">
+          <tr >
             <th>Livres</th>
             <td> ---> 20 --- <i class="bi bi-car-front-fill"></i>
-            
           </tr>
-          <tr align="center">
+          <tr>
             <th>Total</th>
             <td> ---> 30 --- <i class="bi bi-car-front-fill"></i>
-            
           </tr>
         </table>
-     
         <div class="progress-container" style="align-items: center;">
-          <div class="progress-bar" id="progress-bar">0%</div>       
-      
+          <div class="progress-bar" id="progress-bar">0%</div>
       </div>
     
 <!-- Botão para abrir o modal -->
@@ -92,10 +87,7 @@
                 </th>
                 <th>
                   Total de Saídas
-                </th>
-                <th>
-                  Total Diário de Veículos
-                </th>
+                </th>                
               <th>
                   Preço
                 </th>
@@ -105,8 +97,7 @@
             </tr>
             <tr align="center">
                 <td>50</td>
-                <td>20</td>
-                <td>30</td>
+                <td>20</td>                
                 <td>R$ 10</td>
                 <td>R$ xx</td>
             </tr>
@@ -126,7 +117,7 @@
     <label for="placa">Placa:</label><br>
     <input type="text" id="placa" name="placa" required style="width: 12vw;"><br><br>
     <label for="dataHora">Data/Hora:</label><br>
-    <input type="datetime-local" id="dataHora" name="dataHora" required style="width: 12vw;"><br><br>
+    <input type="datetime-local" id="dataHoraentrada" name="dataHora" required style="width: 12vw;"><br><br>
     <label for="observacoes">Observações:</label><br>
     <textarea id="observacoes" name="observacoes" style="width: 12vw; height: 10vh;"></textarea><br><br>
     <button class="entry-button" id="btnEntrada" onclick="openModalentrada()">Entrada</button>
@@ -154,7 +145,7 @@
   <label for="placa">Placa:</label><br>
   <input type="text" id="placa" name="placa" required style="width: 13vw;"><br><br>
   <label for="dataHora">Data/Hora:</label>
-  <input type="datetime-local" id="dataHora" name="dataHora" required style="width: 13vw;"><br><br>
+  <input type="datetime-local" id="dataHorasaida" name="dataHora" required style="width: 13vw;"><br><br>
   <label for="valor">Valor/h:</label>
   <input type="text" id="valor" name="valor" required style="width: 7vw;" value="R$10,00" disabled>
   <button class="exit-button" id="btnSaida" onclick="openModalsaida()">Saída</button>
@@ -178,8 +169,7 @@
 </div>
 
 <!-- FIM CADASTRO DE ENTRADA / SAIDA-->
-
-<!--FIM do Botao de Gerar Relatorio-->   
+ 
 <br><br><br>
       <hr style="width: 500px; margin-left: 430px;">
       <br>
