@@ -29,7 +29,7 @@
     <div id="informacoesAdicionais"></div> */}
 
 
-    const veiculosEstacionados = {}; //Lista que irá conter todos os veículos estacionados.
+    const veiculosEstacionados = {}; // Lista que irá conter todos os veículos estacionados.
     let vagasOcupadas = 0;
     const totalVagas = 5; // Total de vagas de estacionamento
     let vagasLivres = totalVagas;
@@ -37,21 +37,27 @@
     let entradas = 0;
     
     function atualizarContagem() {
-        var ocupadas = `${vagasOcupadas}`;
-        document.getElementById('vagasOcupadas').innerHTML = ocupadas;
-    
-        var livres = `${vagasLivres}`;
-        document.getElementById('vagasLivres').innerHTML = livres;
-    
-        var total = `${totalVagas}`;
-        document.getElementById('totalVagas').innerHTML = total;
-    
-        var entrada = `${entradas}`;
-        document.getElementById('entradas').innerHTML = entrada;
-    
-        var saida = `${saidas}`;
-        document.getElementById('saidas').innerHTML = saida;
+      var ocupadas = `${'Vagas Ocupadas: ' + vagasOcupadas}`;
+      document.getElementById('vagasOcupadas').innerHTML = ocupadas;
+  
+      var livres = `${'Vagas Livres: ' + vagasLivres}`;
+      document.getElementById('vagasLivres').innerHTML = livres;
+  
+      var total = `${'Total: ' + totalVagas}`;
+      document.getElementById('totalVagas').innerHTML = total;
+  
+      var entrada = `${'Entradas: ' + entradas}`;
+      document.getElementById('entradas').innerHTML = entrada;
+  
+      var saida = `${'Saídas: ' + saidas}`;
+      document.getElementById('saidas').innerHTML = saida;
     }
+
+    // Espera até que o DOM esteja completamente carregado
+    document.addEventListener('DOMContentLoaded', function () {
+      // Chama a função para exibir as informações
+      atualizarContagem();
+    });
 
 
     function atualizarDataHora() {

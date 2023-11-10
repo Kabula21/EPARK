@@ -33,18 +33,24 @@
   <!-- FIM LOGO DA NASSAU RODAPÉ -->
        
   <!-- ÁREA DO MENU CONTAINER -->
-    <div class="container" style="width: fit-content;">
-      
-      <div class="card2">
-        <img src="../images/logo.png" height="150px">        
-        <h1 style="margin-left: -60%;">Painel</h1>
+  <div class="container" style="width: fit-content;">
+
+    <div class="card2">
+      <img src="../images/logo.png" height="150px">        
+      <h1 style="margin-left: -60%;">Painel</h1>
       <div class="box">
         <h5 align="center">Epark Uninassau</h5>
         <br>
+        <div class="table">
+        <div id="entradas"></div>
+        <div id="saidas"></div>
+        <div id="valorTotal"></div>
+        <hr style="width: 200px; margin-left: 40px;">
+        <div id="vagasLivres"></div>
+        <div id="vagasOcupadas"></div>
+        <div id="totalVagas"></div>
+      </div> 
         
-        
-    
-    
 <!-- Botão para abrir o modal -->
 
 <button class="open-modal-button" onclick="openModalrelatorio()">Relatório</button>
@@ -62,7 +68,6 @@
                 <td><i class="bi bi-car-front-fill"></i>
                 <td><i class="bi bi-car-front-fill"></i>
                 <td><i class="bi bi-currency-dollar"></i>
-                <td><i class="bi bi-piggy-bank-fill"></i>
               </tr>
               <th>
                   Total de Entradas
