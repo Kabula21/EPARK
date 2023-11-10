@@ -36,22 +36,6 @@
     let saidas = 0;
     let entradas = 0;
     
-    
-    function atualizarDataHora() {
-        const elementoDataHora = document.getElementById('dataHora');
-        const dataHoraAtual = new Date();
-    
-        const dia = dataHoraAtual.getDate().toString().padStart(2, '0');
-        const mes = (dataHoraAtual.getMonth() + 1).toString().padStart(2, '0');
-        const ano = dataHoraAtual.getFullYear();
-        const horas = dataHoraAtual.getHours().toString().padStart(2, '0');
-        const minutos = dataHoraAtual.getMinutes().toString().padStart(2, '0');
-        const segundos = dataHoraAtual.getSeconds().toString().padStart(2, '0');
-    
-        const dataHoraFormatada = `${dia}/${mes}/${ano} ${horas}:${minutos}:${segundos}`;
-        elementoDataHora.textContent = dataHoraFormatada;
-    }
-    
     function atualizarContagem() {
         var ocupadas = `${vagasOcupadas}`;
         document.getElementById('vagasOcupadas').innerHTML = ocupadas;
@@ -67,6 +51,22 @@
     
         var saida = `${saidas}`;
         document.getElementById('saidas').innerHTML = saida;
+    }
+
+
+    function atualizarDataHora() {
+        const elementoDataHora = document.getElementById('dataHora');
+        const dataHoraAtual = new Date();
+    
+        const dia = dataHoraAtual.getDate().toString().padStart(2, '0');
+        const mes = (dataHoraAtual.getMonth() + 1).toString().padStart(2, '0');
+        const ano = dataHoraAtual.getFullYear();
+        const horas = dataHoraAtual.getHours().toString().padStart(2, '0');
+        const minutos = dataHoraAtual.getMinutes().toString().padStart(2, '0');
+        const segundos = dataHoraAtual.getSeconds().toString().padStart(2, '0');
+    
+        const dataHoraFormatada = `${dia}/${mes}/${ano} ${horas}:${minutos}:${segundos}`;
+        elementoDataHora.textContent = dataHoraFormatada;
     }
     
     function formatarDataHora(timestamp) {  //Função para formatar a data e hora.

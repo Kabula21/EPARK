@@ -36,36 +36,18 @@
     <div class="container" style="width: fit-content;">
       
       <div class="card2">
-        <span></span>
-        <span></span>
-        <span></span>
-        <span></span>    
         <img src="../images/logo.png" height="150px">        
         <h1 style="margin-left: -60%;">Painel</h1>
       <div class="box">
         <h5 align="center">Epark Uninassau</h5>
         <br>
-        <table class="table"  cellspacing="10px">
-          <tr>
-            <th>Ocupadas</th>
-            <td> ---> 50 --- <i class="bi bi-car-front-fill"></i>
-          </tr>
-          <tr >
-            <th>Livres</th>
-            <td> ---> 20 --- <i class="bi bi-car-front-fill"></i>
-          </tr>
-          <tr>
-            <th>Total</th>
-            <td> ---> 30 --- <i class="bi bi-car-front-fill"></i>
-          </tr>
-        </table>
-        <div class="progress-container" style="align-items: center;">
-          <div class="progress-bar" id="progress-bar">0%</div>
-      </div>
+        
+        
+    
     
 <!-- Botão para abrir o modal -->
 
-<button class="open-modal-button" onclick="openModal()">Relatório</button>
+<button class="open-modal-button" onclick="openModalrelatorio()">Relatório</button>
 
 <!-- Modal -->
 
@@ -114,8 +96,8 @@
 <h1 style="margin-left: 400px; margin-top: -380px;">Cadastro de Veículos</h1>
 
 <div id="entradaForm" class="entradaform">
-    <label for="placa">Placa:</label><br>
-    <input type="text" id="placa" name="placa" required style="width: 12vw;"><br><br>
+    <label for="placaEntrada">Placa:</label><br>
+    <input type="text" id="placaEntrada" name="placa" required style="width: 12vw;"><br><br>
     <label for="dataHora">Data/Hora:</label><br>
     <input type="datetime-local" id="dataHoraentrada" name="dataHora" required style="width: 12vw;"><br><br>
     <label for="observacoes">Observações:</label><br>
@@ -124,46 +106,42 @@
 </div>
 
 <!-- Modal de Entrada -->
-
 <div id="myModalentrada" class="modalentrada">
   <div class="modal-content-entrada">
       <button class="closeModalentrada" onclick="closeModalentrada()">X</button>
       <h2>Detalhes da Entrada</h2>
-      <label for="modalPlaca">Placa:</label>
-      <span id="modalPlaca"></span><br>
-      <label for="modalDataHora">Data/Hora:</label>
-      <span id="modalDataHora"></span><br>
-      <label for="modalObservacoes">Observações:</label>
-      <span id="modalObservacoes"></span><br>
+      <label for="modalPlacaEntrada">Placa:</label>
+      <span id="modalPlacaEntrada"></span><br>
+      <label for="modalDataHoraEntrada">Data/Hora:</label>
+      <span id="modalDataHoraEntrada"></span><br>
+      <label for="modalObservacoesEntrada">Observações:</label>
+      <span id="modalObservacoesEntrada"></span><br>
       <button class="printButtonentradasaida" id="printButtonentrada">Imprimir</button>
   </div>
 </div>
 
-<!--CADASTRO DE SAÍDA --> 
-
+<!-- CADASTRO DE SAÍDA -->
 <div id="saidaForm" class="saidaform">
-  <label for="placa">Placa:</label><br>
-  <input type="text" id="placa" name="placa" required style="width: 13vw;"><br><br>
-  <label for="dataHora">Data/Hora:</label>
+  <label for="placaSaida">Placa:</label><br>
+  <input type="text" id="placaSaida" name="placa" required style="width: 13vw;"><br><br>
+  <label for="dataHoraSaida">Data/Hora:</label>
   <input type="datetime-local" id="dataHorasaida" name="dataHora" required style="width: 13vw;"><br><br>
   <label for="valor">Valor/h:</label>
   <input type="text" id="valor" name="valor" required style="width: 7vw;" value="R$10,00" disabled>
   <button class="exit-button" id="btnSaida" onclick="openModalsaida()">Saída</button>
-  
 </div>
 
 <!-- Modal de Saída -->
-
 <div id="myModalsaida" class="modalsaida">
   <div class="modal-content-saida">
       <button class="closeModalsaida" onclick="closeModalsaida()">X</button>
       <h2>Detalhes da Saída</h2>
-      <label for="modalPlaca">Placa:</label>
-      <span id="modalPlaca"></span><br>
-      <label for="modalDataHora">Data/Hora:</label>
-      <span id="modalDataHora"></span><br>
-      <label for="modalValor">Valor:</label>
-      <span id="modalValor"></span><br>
+      <label for="modalPlacaSaida">Placa:</label>
+      <span id="modalPlacaSaida"></span><br>
+      <label for="modalDataHoraSaida">Data/Hora:</label>
+      <span id="modalDataHoraSaida"></span><br>
+      <label for="modalValorSaida">Valor:</label>
+      <span id="modalValorSaida"></span><br>
       <button class="printButtonentradasaida" id="printButtonsaida2">Imprimir</button>
   </div>
 </div>
@@ -193,5 +171,6 @@
   </body>
   <script src="../js/signin.js"></script>
   <script src="../js/modal.js"></script>
+  <script src="../js/actions.js"></script>
   <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-C6RzsynM9kWDrMNeT87bh95OGNyZPhcTNXj1NW7RuBCsyN/o0jlpcV8Qyq46cDfL" crossorigin="anonymous"></script>
 </html>

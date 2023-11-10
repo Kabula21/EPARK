@@ -13,27 +13,8 @@ function logar(){
 
 }
 
-
-function startProgress() {
-  let progressBar = document.getElementById("progress-bar");
-  let width = 0;
-  const interval = 10; // Intervalo de atualização em milissegundos
-  
-  const updateProgress = () => {
-      if (width >= 100) {
-          clearInterval(progressInterval);
-      } else {
-          width++;
-          progressBar.style.width = width + "%";
-          progressBar.innerHTML = width + "%";
-      }
-  };
-  
-  const progressInterval = setInterval(updateProgress, interval);
-}
-
-
-function openModal() {
+// MODAL DE RELATORIO //
+function openModalrelatorio() {
   var modal = document.getElementById("modal");
   modal.style.display = "block";
 }
@@ -57,7 +38,7 @@ window.addEventListener("load", () => {
   });
 });
 
-//FUNÇÃO DATA E HORA //
+
 
 
 

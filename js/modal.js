@@ -1,16 +1,17 @@
-// Função Entrada //
+function openModal(modalId, placaId, dataHoraId, contentId) {
+    var modal = document.getElementById(modalId);
+    var placa = document.getElementById(placaId).value;
+    var dataHora = document.getElementById(dataHoraId).value;
+    var content = document.getElementById(contentId);
 
-function openModalentrada() {
-    var modal = document.getElementById("myModalentrada");
-    var placa = document.getElementById("placa").value;
-    var dataHora = document.getElementById("dataHora").value;
-    var observacoes = document.getElementById("observacoes").value;
-
-    document.getElementById("modalPlaca").textContent = placa;
-    document.getElementById("modalDataHora").textContent = dataHora;
-    document.getElementById("modalObservacoes").textContent = observacoes;
+    content.innerHTML = "Placa: " + placa + "<br>Data/Hora: " + dataHora;
 
     modal.style.display = "block";
+}
+
+// Função Entrada
+function openModalentrada() {
+    openModal("myModalentrada", "placaEntrada", "dataHoraentrada", "modalObservacoesEntrada");
 }
 
 function closeModalentrada() {
@@ -18,19 +19,9 @@ function closeModalentrada() {
     modal.style.display = "none";
 }
 
-// Função Saída //
-
+// Função Saída
 function openModalsaida() {
-    var modal = document.getElementById("myModalsaida");
-    var placa = document.getElementById("placa").value;
-    var dataHora = document.getElementById("dataHora").value;
-    var valor = document.getElementById("valor").value;
-
-    document.getElementById("modalPlaca").textContent = placa;
-    document.getElementById("modalDataHora").textContent = dataHora;
-    document.getElementById("modalValor").textContent = valor;
-
-    modal.style.display = "block";
+    openModal("myModalsaida", "placaSaida", "dataHorasaida", "modalValorSaida");
 }
 
 function closeModalsaida() {
@@ -38,10 +29,11 @@ function closeModalsaida() {
     modal.style.display = "none";
 }
 
-// BOTAO DE IMPRIMIR //
+// BOTÃO DE IMPRIMIR
 document.getElementById("printButtonentrada").addEventListener("click", function() {
     window.print(); // Chame a função de impressão quando o botão for clicado
-  });
-  document.getElementById("printButtonsaida2").addEventListener("click", function() {
+});
+
+document.getElementById("printButtonsaida2").addEventListener("click", function() {
     window.print(); // Chame a função de impressão quando o botão for clicado
-  });
+});
