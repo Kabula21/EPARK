@@ -15,7 +15,7 @@
     <input type="text" id="placaEntrada" />
     <label for="observacoes">Informações Adicionais:</label>
     <input type="text" id="observacoesEntrada" />
-    <button id="registrarEntrada">Registrar Entrada</button>
+    <button id="btnEntrada">Registrar Entrada</button>
 
     <hr />
 
@@ -23,7 +23,7 @@
     
     <label for="placaSaida">Placa do Veículo:</label>
     <input type="text" id="placaSaida" />
-    <button id="registrarSaida">Registrar Saída</button>
+    <button id="btnSaida">Registrar Saída</button>
 
     <div id="resultado"></div>
     <div id="informacoesAdicionais"></div> */}
@@ -51,12 +51,17 @@
   
       var saida = `${'Saídas: ' + saidas}`;
       document.getElementById('saidas').innerHTML = saida;
+
+      var horaEntradaFormatada = `${horaEntradaFormatada}`;
+      document.getElementById('horaEntradaFormatada').innerHTML = horaEntradaFormatada;
     }
 
     // Espera até que o DOM esteja completamente carregado
     document.addEventListener('DOMContentLoaded', function () {
       // Chama a função para exibir as informações
       atualizarContagem();
+      atualizarDataHora();
+
     });
 
 
@@ -73,22 +78,13 @@
     
         const dataHoraFormatada = `${dia}/${mes}/${ano} ${horas}:${minutos}:${segundos}`;
         elementoDataHora.textContent = dataHoraFormatada;
-    }
-    
-    function formatarDataHora(timestamp) {  //Função para formatar a data e hora.
-        const dataHora = new Date(timestamp);
-        const dia = dataHora.getDate().toString().padStart(2, '0');
-        const mes = (dataHora.getMonth() + 1).toString().padStart(2, '0');
-        const ano = dataHora.getFullYear();
-        const horas = dataHora.getHours().toString().padStart(2, '0');
-        const minutos = dataHora.getMinutes().toString().padStart(2, '0');
-        return `${dia}/${mes}/${ano} - ${horas}:${minutos}`;
+
     }
     
     document.getElementById('registrarEntrada').addEventListener('click', () => {
         if (vagasOcupadas < totalVagas) {
             const placaEntrada = document.getElementById('placaEntrada').value;
-            const horaEntrada = new Date().getTime();
+            const horaEntrada = new Date();
             const observacoesEntrada = document.getElementById('observacoesEntrada').value; // Obter as observações
     
             if (veiculosEstacionados[placaEntrada]) {
@@ -146,7 +142,7 @@
         }
     });
     
-     // Chama a função para atualizar a data e hora a cada segundo (1000 milissegundos)
+     // Chama a função para atualizar a data e hora a cada segundo (1000 milissegundos ou 1 segundo)
      setInterval(atualizarDataHora, 1000);
      setInterval(atualizarContagem, 1000);
     

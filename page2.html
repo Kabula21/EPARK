@@ -44,7 +44,7 @@
         <div class="table">
         <div id="entradas"></div>
         <div id="saidas"></div>
-        <div id="valorTotal"></div>
+        
         <hr style="width: 200px; margin-left: 40px;">
         <div id="vagasLivres"></div>
         <div id="vagasOcupadas"></div>
@@ -101,13 +101,17 @@
 <h1 style="margin-left: 400px; margin-top: -380px;">Cadastro de Veículos</h1>
 
 <div id="entradaForm" class="entradaform">
-    <label for="placaEntrada">Placa:</label><br>
+    <label for="placaEntrada">Placa do Veículo:</label><br>
     <input type="text" id="placaEntrada" name="placa" required style="width: 12vw;"><br><br>
-    <label for="dataHora">Data/Hora:</label><br>
-    <input type="datetime-local" id="dataHoraentrada" name="dataHora" required style="width: 12vw;"><br><br>
-    <label for="observacoes">Observações:</label><br>
-    <textarea id="observacoes" name="observacoes" style="width: 12vw; height: 10vh;"></textarea><br><br>
-    <button class="entry-button" id="btnEntrada" onclick="openModalentrada()">Entrada</button>
+    <div id="dataHora"></div><br>
+    <label for="observacoes">Informações Adicionais:</label><br>
+    <input type="text" id="observacoesEntrada" style="width: 12vw; height: 10vh;"/>
+    <br>
+    <br>
+    <br>
+    <button class="entry-button" id="registrarEntrada" >Entrada</button><br><br>
+    <button class="entry-button" id="btnEntrada" onclick="openModalentrada()">Impressão</button>
+  
 </div>
 
 <!-- Modal de Entrada -->
@@ -115,25 +119,45 @@
   <div class="modal-content-entrada">
       <button class="closeModalentrada" onclick="closeModalentrada()">X</button>
       <h2>Detalhes da Entrada</h2>
-      <label for="modalPlacaEntrada">Placa:</label>
-      <span id="modalPlacaEntrada"></span><br>
-      <label for="modalDataHoraEntrada">Data/Hora:</label>
-      <span id="modalDataHoraEntrada"></span><br>
-      <label for="modalObservacoesEntrada">Observações:</label>
-      <span id="modalObservacoesEntrada"></span><br>
+      <p id="placaEntrada"></p>
+      <p id="horaEntradaFormatada"></p>
+      <p id="modalObservacoesEntrada"></p>
       <button class="printButtonentradasaida" id="printButtonentrada">Imprimir</button>
   </div>
 </div>
 
 <!-- CADASTRO DE SAÍDA -->
 <div id="saidaForm" class="saidaform">
-  <label for="placaSaida">Placa:</label><br>
-  <input type="text" id="placaSaida" name="placa" required style="width: 13vw;"><br><br>
-  <label for="dataHoraSaida">Data/Hora:</label>
-  <input type="datetime-local" id="dataHorasaida" name="dataHora" required style="width: 13vw;"><br><br>
-  <label for="valor">Valor/h:</label>
-  <input type="text" id="valor" name="valor" required style="width: 7vw;" value="R$10,00" disabled>
-  <button class="exit-button" id="btnSaida" onclick="openModalsaida()">Saída</button>
+  <label for="placaSaida">Placa do Veículo:</label>
+  <input type="text" id="placaSaida" required style="width: 13vw;"/>
+  <button class="exit-button" id="registrarSaida" onclick="openModalsaida()">Saída</button><br><br>
+  <h6 class="tablePrice" style="padding-top: 40%;" >Valores Estacionamento</h6>
+  <table align="middle" border="1">
+      <tr>
+        <th>Tempo</th>
+        <th>Valores</th>
+      </tr>
+      <tr>
+        <td>Até 30 min</td>
+        <td>R$ 7</td>
+      </tr>
+      <tr>
+        <td>Até 1 hora</td>
+        <td>R$ 10</td>
+      </tr>
+      <tr>
+        <td>Até 1.5 hora</td>
+        <td>R$ 15</td>
+      </tr>
+      <tr>
+        <td>Por hora adicional</td>
+        <td>R$ 3</td>
+      </tr>
+      <tr>
+        <td>Diária Máxima</td>
+        <td>R$ 40</td>
+      </tr>
+  </table>
 </div>
 
 <!-- Modal de Saída -->
@@ -141,12 +165,8 @@
   <div class="modal-content-saida">
       <button class="closeModalsaida" onclick="closeModalsaida()">X</button>
       <h2>Detalhes da Saída</h2>
-      <label for="modalPlacaSaida">Placa:</label>
-      <span id="modalPlacaSaida"></span><br>
-      <label for="modalDataHoraSaida">Data/Hora:</label>
-      <span id="modalDataHoraSaida"></span><br>
-      <label for="modalValorSaida">Valor:</label>
-      <span id="modalValorSaida"></span><br>
+      <div id="resultado"></div>
+      <div id="informacoesAdicionais"></div>
       <button class="printButtonentradasaida" id="printButtonsaida2">Imprimir</button>
   </div>
 </div>

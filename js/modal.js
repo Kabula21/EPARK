@@ -1,17 +1,18 @@
-function openModal(modalId, placaId, dataHoraId, contentId) {
+function openModal(modalId, placaEntrada, dataHoraId, contentId, modalObservacoesEntrada) {
     var modal = document.getElementById(modalId);
-    var placa = document.getElementById(placaId).value;
+    var placa = document.getElementById(placaEntrada).value;
     var dataHora = document.getElementById(dataHoraId).value;
     var content = document.getElementById(contentId);
+    var observacoes = document.getElementById(modalObservacoesEntrada);
 
-    content.innerHTML = "Placa: " + placa + "<br>Data/Hora: " + dataHora;
+    content.innerHTML = "Placa: " + placa + "<br>Data/Hora: " + dataHora + "<br>Observações: " + observacoes;
 
     modal.style.display = "block";
 }
 
 // Função Entrada
 function openModalentrada() {
-    openModal("myModalentrada", "placaEntrada", "dataHoraentrada", "modalObservacoesEntrada");
+    openModal("myModalentrada", "placaEntrada", "dataHora", "modalObservacoesEntrada");
 }
 
 function closeModalentrada() {
