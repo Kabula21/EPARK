@@ -40,11 +40,11 @@ body {
 }
 
 
-.box{
+.form-row{
   max-width: 35vh;
-  max-height: 25vh;
+  max-height: 30vh;
   justify-content: center;
-  border: 1px solid rgb(0, 0, 0);
+  border: 1px solid rgba(128, 128, 128, 0.521);
   margin: 20px;
   border-radius: 5px;
 }
@@ -80,6 +80,7 @@ body {
   text-align: left;
   margin-left: 20px;
   margin-top: -15px;
+  
 }
 
 
@@ -440,6 +441,7 @@ a:hover{
 .entradaform{
   margin-left: 430px;
   margin-top: 40px;
+  
 }
 
 .entry-button {
@@ -452,13 +454,27 @@ a:hover{
   width: 80px;
   border-radius: 50px;
   transition: all .4s ease-out;
-  left: 535px;
-  margin-top: -25px;
+  left: 520px;
+  margin-top: 10px;
+}
+
+.entry-button2 {
+  position: absolute;
+  background-color:green;
+  border-color: #22622b18;
+  color: #ffffff;
+  font-weight: bold;
+  font-size: 10pt;
+  width: 80px;
+  border-radius: 50px;
+  transition: all .4s ease-out;
+  left: 630px;
+  margin-top: -38px;
 }
 
 .saidaform{
-  margin-left: 695px;
-  margin-top: -290px;
+  margin-left: 700px;
+  margin-top: -351px;
 }
 
 .exit-button{
@@ -471,8 +487,8 @@ a:hover{
   width: 80px;
   border-radius: 50px;
   transition: all .4s ease-out;
-  left: 800px;
-  margin-top:50px;
+  left: 825px;
+  margin-top:10px;
   
 }
 

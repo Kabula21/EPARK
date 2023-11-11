@@ -43,13 +43,13 @@
       var livres = `${'Vagas Livres: ' + vagasLivres}`;
       document.getElementById('vagasLivres').innerHTML = livres;
   
-      var total = `${'Total: ' + totalVagas}`;
+      var total = `${'Total de Vagas: ' + totalVagas}`;
       document.getElementById('totalVagas').innerHTML = total;
   
-      var entrada = `${'Entradas: ' + entradas}`;
+      var entrada = `${'Total Entradas: ' + entradas}`;
       document.getElementById('entradas').innerHTML = entrada;
   
-      var saida = `${'Saídas: ' + saidas}`;
+      var saida = `${'Total Saídas: ' + saidas}`;
       document.getElementById('saidas').innerHTML = saida;
 
       var horaEntradaFormatada = `${horaEntradaFormatada}`;
@@ -130,9 +130,6 @@
                 document.getElementById('informacoesAdicionais').textContent = `Informações Adicionais: ${informacoesAdicionais}`;
             }
             
-    
-            
-    
             delete veiculosEstacionados[placaSaida];
             vagasOcupadas--;
             vagasLivres++;

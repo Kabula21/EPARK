@@ -38,14 +38,12 @@
     <div class="card2">
       <img src="../images/logo.png" height="150px">        
       <h1 style="margin-left: -60%;">Painel</h1>
-      <div class="box">
+      <div class="form-row">
         <h5 align="center">Epark Uninassau</h5>
         <br>
         <div class="table">
         <div id="entradas"></div>
-        <div id="saidas"></div>
-        
-        <hr style="width: 200px; margin-left: 40px;">
+        <div id="saidas"></div><br>
         <div id="vagasLivres"></div>
         <div id="vagasOcupadas"></div>
         <div id="totalVagas"></div>
@@ -101,16 +99,13 @@
 <h1 style="margin-left: 400px; margin-top: -380px;">Cadastro de Veículos</h1>
 
 <div id="entradaForm" class="entradaform">
-    <label for="placaEntrada">Placa do Veículo:</label><br>
-    <input type="text" id="placaEntrada" name="placa" required style="width: 12vw;"><br><br>
-    <div id="dataHora"></div><br>
-    <label for="observacoes">Informações Adicionais:</label><br>
-    <input type="text" id="observacoesEntrada" style="width: 12vw; height: 10vh;"/>
-    <br>
-    <br>
-    <br>
+    <label for="placaEntrada">Placa do Veículo:</label>
+    <input class="form-control" type="text" id="placaEntrada" name="placa" required style="width: 12vw;" placeholder="Insira a placa, aqui..."><br><br>
+    <div class="form-control"  style="width: 255px;" id="dataHora"></div><br>
+    <label for="observacoes">Informações Adicionais:</label>
+    <input  class="form-control" type="text" id="observacoesEntrada" style="width: 12vw; height: 10vh;"placeholder="Observações..."/>
     <button class="entry-button" id="registrarEntrada" >Entrada</button><br><br>
-    <button class="entry-button" id="btnEntrada" onclick="openModalentrada()">Impressão</button>
+    <button class="entry-button2" id="btnEntrada" onclick="openModalentrada()">Impressão</button>
   
 </div>
 
@@ -120,7 +115,7 @@
       <button class="closeModalentrada" onclick="closeModalentrada()">X</button>
       <h2>Detalhes da Entrada</h2>
       <p id="placaEntrada"></p>
-      <p id="horaEntradaFormatada"></p>
+      <p id="datahora"></p>
       <p id="modalObservacoesEntrada"></p>
       <button class="printButtonentradasaida" id="printButtonentrada">Imprimir</button>
   </div>
@@ -129,32 +124,32 @@
 <!-- CADASTRO DE SAÍDA -->
 <div id="saidaForm" class="saidaform">
   <label for="placaSaida">Placa do Veículo:</label>
-  <input type="text" id="placaSaida" required style="width: 13vw;"/>
+  <input class="form-control" type="text" id="placaSaida" required style="width: 11vw;" placeholder="Insira a placa, aqui..."/>
   <button class="exit-button" id="registrarSaida" onclick="openModalsaida()">Saída</button><br><br>
-  <h6 class="tablePrice" style="padding-top: 40%;" >Valores Estacionamento</h6>
-  <table align="middle" border="1">
+  <h6 class="tablePrice" style="padding-top: 10%;" >Tabela de Valores </h6>
+  <table class="form-control" align="center" border="1">
       <tr>
         <th>Tempo</th>
         <th>Valores</th>
       </tr>
       <tr>
-        <td>Até 30 min</td>
+        <td>Até 30 min: </td>
         <td>R$ 7</td>
       </tr>
       <tr>
-        <td>Até 1 hora</td>
+        <td>Até 1 hora: </td>
         <td>R$ 10</td>
       </tr>
       <tr>
-        <td>Até 1.5 hora</td>
+        <td>Até 1.5 hora: </td>
         <td>R$ 15</td>
       </tr>
       <tr>
-        <td>Por hora adicional</td>
+        <td>Hora adicional: </td>
         <td>R$ 3</td>
       </tr>
       <tr>
-        <td>Diária Máxima</td>
+        <td>Diária Máxima: </td>
         <td>R$ 40</td>
       </tr>
   </table>
@@ -173,8 +168,8 @@
 
 <!-- FIM CADASTRO DE ENTRADA / SAIDA-->
  
-<br><br><br>
-      <hr style="width: 500px; margin-left: 430px;">
+<br><br>
+      
       <br>
       <h6 class="justify-center" style="margin-left: 0px;">Powered by TTGGroup</h6>
       </div>
