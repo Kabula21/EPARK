@@ -95,7 +95,7 @@
 
 .printButtonentradasaida{
   position: absolute;
-  top: 200px;
+  top: 250px;
   background-color: transparent;
   border-color: #272262;
   color: #272262;
@@ -105,6 +105,6 @@
   width: 70px;
   border-radius: 10px;
   transition: all .4s ease-out;
-  left: 300px;
+  left: 250px;
   cursor: pointer;
 }

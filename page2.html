@@ -94,31 +94,31 @@
 </div>
 </div>
 
-<!--CADASTRO DE ENTRADA --> 
+<!-- CADASTRO DE ENTRADA -->
 
 <h1 style="margin-left: 400px; margin-top: -380px;">Cadastro de Veículos</h1>
 
 <div id="entradaForm" class="entradaform">
     <label for="placaEntrada">Placa do Veículo:</label>
     <input class="form-control" type="text" id="placaEntrada" name="placa" required style="width: 12vw;" placeholder="Insira a placa, aqui..."><br><br>
-    <div class="form-control"  style="width: 255px;" id="dataHora"></div><br>
+    <div class="form-control" style="width: 220px;" id="dataHora"></div><br>
     <label for="observacoes">Informações Adicionais:</label>
-    <input  class="form-control" type="text" id="observacoesEntrada" style="width: 12vw; height: 10vh;"placeholder="Observações..."/>
-    <button class="entry-button" id="registrarEntrada" >Entrada</button><br><br>
+    <input class="form-control" type="text" id="observacoesEntrada" style="width: 13vw; height: 15vh;" placeholder="Observações..." />
+    <button class="entry-button" id="registrarEntrada">Entrada</button><br><br>
     <button class="entry-button2" id="btnEntrada" onclick="openModalentrada()">Impressão</button>
-  
+
 </div>
 
 <!-- Modal de Entrada -->
 <div id="myModalentrada" class="modalentrada">
-  <div class="modal-content-entrada">
-      <button class="closeModalentrada" onclick="closeModalentrada()">X</button>
-      <h2>Detalhes da Entrada</h2>
-      <p id="placaEntrada"></p>
-      <p id="datahora"></p>
-      <p id="modalObservacoesEntrada"></p>
-      <button class="printButtonentradasaida" id="printButtonentrada">Imprimir</button>
-  </div>
+    <div class="modal-content-entrada">
+        <button class="closeModalentrada" onclick="closeModalentrada()">X</button>
+        <h2>Detalhes da Entrada</h2>
+        <p id="modalPlacaEntrada"></p>
+        <p id="modalDataHora"></p>
+        <p id="modalObservacoesEntrada"></p>
+        <button class="printButtonentradasaida" id="printButtonentrada">Imprimir</button>
+    </div>
 </div>
 
 <!-- CADASTRO DE SAÍDA -->
