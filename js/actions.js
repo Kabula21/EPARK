@@ -30,12 +30,13 @@
 
 
     const veiculosEstacionados = {}; // Lista que irá conter todos os veículos estacionados.
-    let vagasOcupadas = 0;
-    const totalVagas = 5; // Total de vagas de estacionamento
-    let vagasLivres = totalVagas;
-    let saidas = 0;
-    let entradas = 0;
+    let vagasOcupadas = 0;           // Variável que irá contar o n° de vagas ocupadas.
+    const totalVagas = 5;            // Variável do total de vagas do estacionamento.
+    let vagasLivres = totalVagas;    // Variável do total de vagas livres.
+    let saidas = 0;                  // Variável do total de saídas.
+    let entradas = 0;                // Variável do total de entradas.
     
+    //Função para sempre atualizar a contagem de veículos (alterar valores no painel principal).
     function atualizarContagem() {
       var ocupadas = `${'Vagas Ocupadas: ' + vagasOcupadas}`;
       document.getElementById('vagasOcupadas').innerHTML = ocupadas;
@@ -64,7 +65,7 @@
 
     });
 
-    // AJUSTE DATA E HORA DO SISTEMA E MODAL//
+    // Função para Abrir e configurar modal de Impressão de ENTRADA.
     function openModalentrada() {
         // Antes de abrir o modal, atualize a data e hora
         atualizarDataHora();
@@ -82,11 +83,13 @@
         document.getElementById('myModalentrada').style.display = 'block';
     }
 
+    // Função para fechar e configurar modal de Impressão de ENTRADA.
     function closeModalentrada() {
         // Feche o modal
         document.getElementById('myModalentrada').style.display = 'none';
     }
-
+    
+    // Função para atualizar e formatar(dia/mês/ano Horas:Minutos:Segundos) a Data e Hora do sistema.
     function atualizarDataHora() {
         const elementoDataHora = document.getElementById('dataHora');
         const dataHoraAtual = new Date();
@@ -98,13 +101,12 @@
         const minutos = dataHoraAtual.getMinutes().toString().padStart(2, '0');
         const segundos = dataHoraAtual.getSeconds().toString().padStart(2, '0');
 
-        const dataHoraFormatada = `${dia}/${mes}/${ano} ${horas}:${minutos}:${segundos}`;
+        const dataHoraFormatada = `${dia}/${mes}/${ano} - ${horas}:${minutos}:${segundos}`;
         elementoDataHora.textContent = dataHoraFormatada;
     }
 
 
-//FUNÇÃO DE REGISTRO DE ENTRADA//
-    
+    //Implementação da regra de negócio do registro de entrada
     document.getElementById('registrarEntrada').addEventListener('click', () => {
         if (vagasOcupadas < totalVagas) {
             const placaEntrada = document.getElementById('placaEntrada').value;
@@ -129,35 +131,84 @@
     });
     
 
-//FUNÇÃO DE REGISTRO DE SAIDA//
+ //Implementação do registro de saída
 
     // Função para abrir o modal de saída
 function openModalsaida() {
-    document.getElementById('myModalsaida').style.display = 'block';
+  // Antes de abrir o modal, atualize a data e hora
+  atualizarDataHora();
+  openModal("myModalsaida", "placaSaida", "dataHorasaida", "modalValorSaida");
+  // Obtenha os valores do formulário
+  const placaSaida = document.getElementById('placaSaida').value;
+  const observacoes = document.getElementById('observacoesSaida').value;
+
+  // Atualize os elementos no modal
+  document.getElementById('modalPlacaSaida').textContent = `Placa: ${placaSaida}`;
+  document.getElementById('modalDataHora').textContent = `Data e Hora ENTRADA: ${horaEntradaFormatada}`;
+  document.getElementById('modalDataHora').textContent = `Data e Hora SAÍDA: ${horaSaidaFormatada}`;
+  document.getElementById('modalObservacoesSaida').textContent = `Observações: ${informacoesAdicionais}`;
+  document.getElementById('modalValorSaida').textContent = `Observações: ${valorPagar}`;
+
+  // Abra o modal
+  document.getElementById('myModalsaida').style.display = 'block';
   }
   
   // Função para fechar o modal de saída
   function closeModalsaida() {
     document.getElementById('myModalsaida').style.display = 'none';
   }
-  
-  document.getElementById('registrarSaida').addEventListener('click', () => {
+
+   //Implementação da regra de negócio do registro de saída
+    document.getElementById('registrarSaida').addEventListener('click', () => {
     const placaSaida = document.getElementById('placaSaida').value;
-  
+
     if (veiculosEstacionados[placaSaida]) {
-      // ... (código existente)
-  
-      // Chamar a função para abrir o modal de saída
-      openModalsaida();
+        const horaSaida = new Date().getTime();
+        const tempoEstacionado = (horaSaida - veiculosEstacionados[placaSaida].horaEntrada) / 3600000;
+        const valorEstacionamento = tempoEstacionado * 10;
+
+        const horaEntradaFormatada = formatarDataHora(veiculosEstacionados[placaSaida].horaEntrada);
+        const horaSaidaFormatada = formatarDataHora(horaSaida);
+
+        //Exibir informações adicionais
+        const informacoesAdicionais = veiculosEstacionados[placaSaida].informacoesAdicionais;
+
+        if (valorEstacionamento > 1) {
+          const placaSaida = 'Placa: ${placaSaida}';
+          const horaEntrada = 'Hora de Entrada: ${horaEntradaFormatada}';
+          const horaSaida = 'Hora de Saída: ${horaSaidaFormatada}';
+          const tempoEstacionado = 'Tempo Estacionado (horas): ${tempoEstacionado.toFixed(2)}';
+          const valorPagar = 'Valor a pagar: R$ ${valorEstacionamento.toFixed(2)}';
+
+          document.getElementById('placaSaida').innerHTML = placaSaida;
+          document.getElementById('horaEntradaFormatada').innerHTML = horaEntrada;
+          document.getElementById('horaSaida').innerHTML = horaSaida;
+          document.getElementById('tempoEstacionado').innerHTML = tempoEstacionado;
+          document.getElementById('valorPagar').innerHTML = valorPagar;
+          document.getElementById('informacoesAdicionais').textContent = `Informações Adicionais: ${informacoesAdicionais}`;
+        } else {
+          const placaSaida = 'Placa: ${placaSaida}';
+          const horaEntrada = 'Hora de Entrada: ${horaEntradaFormatada}';
+          const horaSaida = 'Hora de Saída: ${horaSaidaFormatada}';
+          const tempoEstacionado = 'Tempo Estacionado (horas): ${tempoEstacionado.toFixed(2)}';
+          const valorPagar = 'Valor a pagar: R$ 0.00';
+          
+          document.getElementById('placaSaida').innerHTML = placaSaida;
+          document.getElementById('horaEntradaFormatada').innerHTML = horaEntrada;
+          document.getElementById('horaSaida').innerHTML = horaSaida;
+          document.getElementById('tempoEstacionado').innerHTML = tempoEstacionado;
+          document.getElementById('valorPagar').innerHTML = valorPagar;
+          document.getElementById('informacoesAdicionais').textContent = `Informações Adicionais: ${informacoesAdicionais}`;
+        }
+        delete veiculosEstacionados[placaSaida];//A partir do 
+        vagasOcupadas--;
+        vagasLivres++;
+        saidas++;
     } else {
-      alert('Veículo não encontrado no estacionamento.');
+        alert('Veículo não encontrado no estacionamento.');
     }
   });
   
-  // Função para formatar data e hora (substitua com a sua implementação)
-  function formatarDataHora(timestamp) {
-    // Implementação da formatação de data e hora
-  }
   
     
      // Chama a função para atualizar a data e hora a cada segundo (1000 milissegundos ou 1 segundo)

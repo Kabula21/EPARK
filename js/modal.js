@@ -22,7 +22,7 @@ function closeModalentrada() {
 
 // Função Saída
 function openModalsaida() {
-    openModal("myModalsaida", "placaSaida", "dataHorasaida", "modalValorSaida");
+    openModal("myModalsaida", "placaSaida", "dataHorasaida", "modalValorSaida", "modalObservacoesSaida");
 }
 
 function closeModalsaida() {
