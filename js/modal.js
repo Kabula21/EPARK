@@ -20,15 +20,45 @@ function closeModalentrada() {
     modal.style.display = "none";
 }
 
-// Função Saída
+
+
+// Function Entrada
+function openModal2(modalId, placaEntrada, placaSaida, dataHoraEntrada, dataHoraSaida, modalObservacoesEntrada, tempoEstacionado, valorPagar, content) {
+    var modal = document.getElementById(modalId);
+    var placaEntradaValue = document.getElementById(placaEntrada).value;
+    var placaSaidaValue = document.getElementById(placaSaida).value;
+    var dataHoraEntradaValue = document.getElementById(dataHoraEntrada).value;
+    var dataHoraSaidaValue = document.getElementById(dataHoraSaida).value;
+    var modalObservacoesEntradaElement = document.getElementById(modalObservacoesEntrada).value; 
+    var tempoEstacionadoElement = document.getElementById(tempoEstacionado).value; 
+    var valorPagarElement = document.getElementById(valorPagar).value; 
+    var contentElement = document.getElementById(content);
+
+    contentElement.innerHTML = "modalObservacoesEntrada:" + modalObservacoesEntradaElement + "<br>Placa Entrada: " + placaEntradaValue + "<br>Placa Saída: " + placaSaidaValue + "<br>Data e Hora Entrada: " + dataHoraEntradaValue + "<br>Data e Hora Saída: " + dataHoraSaidaValue + "<br>Tempo Estacionado: " + tempoEstacionadoElement + "<br>Valor a Pagar: " + valorPagarElement;
+
+    modal.style.display = "block";
+}
+
+// Function Saída
 function openModalsaida() {
-    openModal("myModalsaida", "placaSaida", "dataHorasaida", "modalValorSaida", "modalObservacoesSaida");
+    openModal2("myModalsaida", "placaEntrada", "placaSaida", "dataHoraentrada", "dataHorasaida", "modalObservacoesEntrada", "tempoEstacionado", "valorPagar", "content");
 }
 
 function closeModalsaida() {
     var modal = document.getElementById("myModalsaida");
     modal.style.display = "none";
 }
+
+
+
+
+
+
+
+
+
+
+
 
 // BOTÃO DE IMPRIMIR
 document.getElementById("printButtonentrada").addEventListener("click", function() {

@@ -100,10 +100,10 @@
 
 <div id="entradaForm" class="entradaform">
     <label for="placaEntrada">Placa do Veículo:</label>
-    <input class="form-control" type="text" id="placaEntrada" name="placa" required style="width: 12vw;" placeholder="Insira a placa, aqui..."><br><br>
+    <input class="form-control" type="text" id="placaEntrada" name="placa" required style="width: 11vw;" placeholder="Insira a placa, aqui..."><br><br>
     <div class="form-control" style="width: 220px;" id="dataHora"></div><br>
     <label for="observacoes">Informações Adicionais:</label>
-    <input class="form-control" type="text" id="observacoesEntrada" style="width: 13vw; height: 15vh;" placeholder="Observações..." />
+    <input class="form-control" type="text" id="observacoesEntrada" style="width: 11vw; height: 15vh;" placeholder="Observações..." />
     <button class="entry-button" id="registrarEntrada">Entrada</button><br><br>
     <button class="entry-button2" id="btnEntrada" onclick="openModalentrada()">Impressão</button>
 
@@ -124,48 +124,54 @@
 <!-- CADASTRO DE SAÍDA -->
 <div id="saidaForm" class="saidaform">
   <label for="placaSaida">Placa do Veículo:</label>
-  <input class="form-control" type="text" id="placaSaida" required style="width: 11vw;" placeholder="Insira a placa, aqui..."/>
+  <input class="form-control" type="text" id="placaSaida" required style="width: 11vw;" placeholder="Insira a placa aqui..." />
   <button class="exit-button" id="registrarSaida" onclick="openModalsaida()">Saída</button><br><br>
-  
-  <h6 class="tablePrice" style="padding-top: 10%;" >Tabela de Valores </h6> <!-- Tabela de Valores -->
+
+  <h6 class="tablePrice" style="padding-top: 10%;">Tabela de Valores</h6>
+  <!-- Tabela de Valores -->
   <table class="form-control" align="center" border="1">
+    <thead>
       <tr>
         <th>Tempo</th>
         <th>Valores</th>
       </tr>
+    </thead>
+    <tbody>
       <tr>
-        <td>Até 30 min: </td>
+        <td>Até 30 min:</td>
         <td>R$ 7</td>
       </tr>
       <tr>
-        <td>Até 1 hora: </td>
+        <td>Até 1 hora:</td>
         <td>R$ 10</td>
       </tr>
       <tr>
-        <td>Até 1.5 hora: </td>
+        <td>Até 1.5 hora:</td>
         <td>R$ 15</td>
       </tr>
       <tr>
-        <td>Hora adicional: </td>
+        <td>Hora adicional:</td>
         <td>R$ 3</td>
       </tr>
       <tr>
-        <td>Diária Máxima: </td>
+        <td>Diária Máxima:</td>
         <td>R$ 40</td>
       </tr>
+    </tbody>
   </table>
 </div>
 
 <!-- Modal de Saída -->
 <div id="myModalsaida" class="modalsaida">
   <div class="modal-content-saida">
-      <button class="closeModalsaida" onclick="closeModalsaida()">X</button>
-      <h2>Detalhes da Saída</h2>
-      <div id="resultado"></div>
-      <div id="informacoesAdicionais"></div>
-      <button class="printButtonentradasaida" id="printButtonsaida2">Imprimir</button>
+    <button class="closeModalsaida" onclick="closeModalsaida()">X</button>
+    <h2>Detalhes da Saída</h2>
+    <div id="resultado"></div>
+    <div id="informacoesAdicionais"></div>
+    <button class="printButtonentradasaida" id="printButtonsaida2">Imprimir</button>
   </div>
 </div>
+
 
 <!-- FIM CADASTRO DE ENTRADA / SAIDA-->
  

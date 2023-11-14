@@ -1,32 +1,4 @@
-{/* <h1>Contagem de Veículos</h1>
-    <div id="totalVagas"></div>
-    <div id="vagasLivres"></div>
-    <div id="vagasOcupadas"></div>
-    <hr>
-    <div id="entradas"></div>
-    <div id="saidas"></div>
-    <div id="valorTotal"></div>
 
-    <hr />
-
-    <h1>Entrada de Veículo</h1>
-    <div id="dataHora"></div>
-    <label for="placaEntrada">Placa do Veículo:</label>
-    <input type="text" id="placaEntrada" />
-    <label for="observacoes">Informações Adicionais:</label>
-    <input type="text" id="observacoesEntrada" />
-    <button id="btnEntrada">Registrar Entrada</button>
-
-    <hr />
-
-    <h1>Saída de Veículo</h1>
-    
-    <label for="placaSaida">Placa do Veículo:</label>
-    <input type="text" id="placaSaida" />
-    <button id="btnSaida">Registrar Saída</button>
-
-    <div id="resultado"></div>
-    <div id="informacoesAdicionais"></div> */}
 
 
     const veiculosEstacionados = {}; // Lista que irá conter todos os veículos estacionados.
@@ -131,83 +103,76 @@
     });
     
 
- //Implementação do registro de saída
+    function openModalsaida() {
+      // Antes de abrir o modal, atualize a data e hora
+      atualizarDataHora();
 
-    // Função para abrir o modal de saída
-function openModalsaida() {
-  // Antes de abrir o modal, atualize a data e hora
-  atualizarDataHora();
-  openModal("myModalsaida", "placaSaida", "dataHorasaida", "modalValorSaida");
-  // Obtenha os valores do formulário
-  const placaSaida = document.getElementById('placaSaida').value;
-  const observacoes = document.getElementById('observacoesSaida').value;
+ // Obtenha os valores do formulário
+      const placa = document.getElementById('placaEntrada').value;
+      const observacoes = document.getElementById('observacoesEntrada').value;
 
-  // Atualize os elementos no modal
-  document.getElementById('modalPlacaSaida').textContent = `Placa: ${placaSaida}`;
-  document.getElementById('modalDataHora').textContent = `Data e Hora ENTRADA: ${horaEntradaFormatada}`;
-  document.getElementById('modalDataHora').textContent = `Data e Hora SAÍDA: ${horaSaidaFormatada}`;
-  document.getElementById('modalObservacoesSaida').textContent = `Observações: ${informacoesAdicionais}`;
-  document.getElementById('modalValorSaida').textContent = `Observações: ${valorPagar}`;
+      // Atualize os elementos no modal
+      document.getElementById('placaEntrada').textContent = `Placa: ${placa}`;
+      document.getElementById('placaSaida').textContent = `Placa: ${placaSaida}`;
+      document.getElementById('dataHorasaida').textContent = `Data e Hora: ${document.getElementById('horaEntradaFormatada').textContent}`;
+      document.getElementById('modalObservacoesEntrada').textContent = `Observações: ${observacoes}`;
+      document.getElementById('dataHoraentrada').textContent = `Data e Hora: ${document.getElementById('horaSaidaFormatada').textContent}`;
+      document.getElementById('tempoEstacionado').textContent = `Tempo Estacionado: ${tempoEstacionado}`;
+      document.getElementById('valorPagar').textContent = `Tempo Estacionado: ${valorPagar}`;
 
-  // Abra o modal
-  document.getElementById('myModalsaida').style.display = 'block';
-  }
-  
-  // Função para fechar o modal de saída
-  function closeModalsaida() {
-    document.getElementById('myModalsaida').style.display = 'none';
-  }
 
-   //Implementação da regra de negócio do registro de saída
-    document.getElementById('registrarSaida').addEventListener('click', () => {
-    const placaSaida = document.getElementById('placaSaida').value;
+      // Abra o modal
+      document.getElementById('myModalsaida').style.display = 'block';
 
-    if (veiculosEstacionados[placaSaida]) {
-        const horaSaida = new Date().getTime();
-        const tempoEstacionado = (horaSaida - veiculosEstacionados[placaSaida].horaEntrada) / 3600000;
-        const valorEstacionamento = tempoEstacionado * 10;
-
-        const horaEntradaFormatada = formatarDataHora(veiculosEstacionados[placaSaida].horaEntrada);
-        const horaSaidaFormatada = formatarDataHora(horaSaida);
-
-        //Exibir informações adicionais
-        const informacoesAdicionais = veiculosEstacionados[placaSaida].informacoesAdicionais;
-
-        if (valorEstacionamento > 1) {
-          const placaSaida = 'Placa: ${placaSaida}';
-          const horaEntrada = 'Hora de Entrada: ${horaEntradaFormatada}';
-          const horaSaida = 'Hora de Saída: ${horaSaidaFormatada}';
-          const tempoEstacionado = 'Tempo Estacionado (horas): ${tempoEstacionado.toFixed(2)}';
-          const valorPagar = 'Valor a pagar: R$ ${valorEstacionamento.toFixed(2)}';
-
-          document.getElementById('placaSaida').innerHTML = placaSaida;
-          document.getElementById('horaEntradaFormatada').innerHTML = horaEntrada;
-          document.getElementById('horaSaida').innerHTML = horaSaida;
-          document.getElementById('tempoEstacionado').innerHTML = tempoEstacionado;
-          document.getElementById('valorPagar').innerHTML = valorPagar;
-          document.getElementById('informacoesAdicionais').textContent = `Informações Adicionais: ${informacoesAdicionais}`;
-        } else {
-          const placaSaida = 'Placa: ${placaSaida}';
-          const horaEntrada = 'Hora de Entrada: ${horaEntradaFormatada}';
-          const horaSaida = 'Hora de Saída: ${horaSaidaFormatada}';
-          const tempoEstacionado = 'Tempo Estacionado (horas): ${tempoEstacionado.toFixed(2)}';
-          const valorPagar = 'Valor a pagar: R$ 0.00';
-          
-          document.getElementById('placaSaida').innerHTML = placaSaida;
-          document.getElementById('horaEntradaFormatada').innerHTML = horaEntrada;
-          document.getElementById('horaSaida').innerHTML = horaSaida;
-          document.getElementById('tempoEstacionado').innerHTML = tempoEstacionado;
-          document.getElementById('valorPagar').innerHTML = valorPagar;
-          document.getElementById('informacoesAdicionais').textContent = `Informações Adicionais: ${informacoesAdicionais}`;
-        }
-        delete veiculosEstacionados[placaSaida];//A partir do 
-        vagasOcupadas--;
-        vagasLivres++;
-        saidas++;
-    } else {
-        alert('Veículo não encontrado no estacionamento.');
+      function closeModalsaida() {
+        // Feche o modal
+        document.getElementById('myModalentrada').style.display = 'none';
     }
-  });
+  }
+
+
+  // Implementação da regra de negócio do registro de saída
+document.getElementById('registrarSaida').addEventListener('click', () => {
+  const placaSaida = document.getElementById('placaSaida').value;
+
+  if (veiculosEstacionados[placaSaida]) {
+      const horaSaida = new Date().getTime();
+      const tempoEstacionado = (horaSaida - veiculosEstacionados[placaSaida].horaEntrada) / 3600000;
+      const valorEstacionamento = tempoEstacionado * 10;
+
+      const horaEntradaFormatada = formatarDataHora(veiculosEstacionados[placaSaida].horaEntrada);
+      const horaSaidaFormatada = formatarDataHora(horaSaida);
+
+      // Exibir informações adicionais
+      const informacoesAdicionais = veiculosEstacionados[placaSaida].informacoesAdicionais;
+
+      const placaSaidaTexto = `Placa: ${placaSaida}`;
+      const horaEntradaTexto = `Hora de Entrada: ${horaEntradaFormatada}`;
+      const horaSaidaTexto = `Hora de Saída: ${horaSaidaFormatada}`;
+      const tempoEstacionadoTexto = `Tempo Estacionado (horas): ${tempoEstacionado.toFixed(2)}`;
+      const valorPagarTexto = `Valor a pagar: R$ ${valorEstacionamento.toFixed(2)}`;
+
+      document.getElementById('placaSaida').textContent = placaSaidaTexto;
+      document.getElementById('horaEntradaFormatada').textContent = horaEntradaTexto;
+      document.getElementById('horaSaida').textContent = horaSaidaTexto;
+      document.getElementById('tempoEstacionado').textContent = tempoEstacionadoTexto;
+      document.getElementById('valorPagar').textContent = valorPagarTexto;
+      document.getElementById('informacoesAdicionais').textContent = `Informações Adicionais: ${informacoesAdicionais}`;
+
+      if (valorEstacionamento > 0) {
+          delete veiculosEstacionados[placaSaida]; 
+          vagasOcupadas--;
+          vagasLivres++;
+          saidas++;
+      }
+  } else {
+      alert('Veículo não encontrado no estacionamento.');
+  }
+});
+
+
+    
+
   
   
     
