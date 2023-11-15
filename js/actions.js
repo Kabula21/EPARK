@@ -103,74 +103,37 @@
     });
     
 
-    function openModalsaida() {
-      // Antes de abrir o modal, atualize a data e hora
-      atualizarDataHora();
-
- // Obtenha os valores do formulário
-      const placa = document.getElementById('placaEntrada').value;
-      const observacoes = document.getElementById('observacoesEntrada').value;
-
-      // Atualize os elementos no modal
-      document.getElementById('placaEntrada').textContent = `Placa: ${placa}`;
-      document.getElementById('placaSaida').textContent = `Placa: ${placaSaida}`;
-      document.getElementById('dataHorasaida').textContent = `Data e Hora: ${document.getElementById('horaEntradaFormatada').textContent}`;
-      document.getElementById('modalObservacoesEntrada').textContent = `Observações: ${observacoes}`;
-      document.getElementById('dataHoraentrada').textContent = `Data e Hora: ${document.getElementById('horaSaidaFormatada').textContent}`;
-      document.getElementById('tempoEstacionado').textContent = `Tempo Estacionado: ${tempoEstacionado}`;
-      document.getElementById('valorPagar').textContent = `Tempo Estacionado: ${valorPagar}`;
 
 
-      // Abra o modal
-      document.getElementById('myModalsaida').style.display = 'block';
-
-      function closeModalsaida() {
-        // Feche o modal
-        document.getElementById('myModalentrada').style.display = 'none';
-    }
-  }
 
 
-  // Implementação da regra de negócio do registro de saída
-document.getElementById('registrarSaida').addEventListener('click', () => {
-  const placaSaida = document.getElementById('placaSaida').value;
 
-  if (veiculosEstacionados[placaSaida]) {
-      const horaSaida = new Date().getTime();
-      const tempoEstacionado = (horaSaida - veiculosEstacionados[placaSaida].horaEntrada) / 3600000;
-      const valorEstacionamento = tempoEstacionado * 10;
+// Função para Abrir e configurar modal de Impressão de ENTRADA.
+function openModalsaida() {
+    // Antes de abrir o modal, atualize a data e hora
+    atualizarDataHora();
 
-      const horaEntradaFormatada = formatarDataHora(veiculosEstacionados[placaSaida].horaEntrada);
-      const horaSaidaFormatada = formatarDataHora(horaSaida);
+    // Obtenha os valores do formulário
+    const placa = document.getElementById('placaEntrada').value;
+    const observacoes = document.getElementById('observacoesEntrada').value;
 
-      // Exibir informações adicionais
-      const informacoesAdicionais = veiculosEstacionados[placaSaida].informacoesAdicionais;
+    // Atualize os elementos no modal
+    document.getElementById('modalPlacaEntrada').textContent = `Placa: ${placa}`;
+    document.getElementById('modalDataHora').textContent = `Data e Hora: ${document.getElementById('dataHora').textContent}`;
+    document.getElementById('modalObservacoesEntrada').textContent = `Observações: ${observacoes}`;
 
-      const placaSaidaTexto = `Placa: ${placaSaida}`;
-      const horaEntradaTexto = `Hora de Entrada: ${horaEntradaFormatada}`;
-      const horaSaidaTexto = `Hora de Saída: ${horaSaidaFormatada}`;
-      const tempoEstacionadoTexto = `Tempo Estacionado (horas): ${tempoEstacionado.toFixed(2)}`;
-      const valorPagarTexto = `Valor a pagar: R$ ${valorEstacionamento.toFixed(2)}`;
+    // Abra o modal
+    document.getElementById('myModalentrada').style.display = 'block';
+}
 
-      document.getElementById('placaSaida').textContent = placaSaidaTexto;
-      document.getElementById('horaEntradaFormatada').textContent = horaEntradaTexto;
-      document.getElementById('horaSaida').textContent = horaSaidaTexto;
-      document.getElementById('tempoEstacionado').textContent = tempoEstacionadoTexto;
-      document.getElementById('valorPagar').textContent = valorPagarTexto;
-      document.getElementById('informacoesAdicionais').textContent = `Informações Adicionais: ${informacoesAdicionais}`;
-
-      if (valorEstacionamento > 0) {
-          delete veiculosEstacionados[placaSaida]; 
-          vagasOcupadas--;
-          vagasLivres++;
-          saidas++;
-      }
-  } else {
-      alert('Veículo não encontrado no estacionamento.');
-  }
-});
+// Função para fechar e configurar modal de Impressão de ENTRADA.
+function closeModalsaida() {
+    // Feche o modal
+    document.getElementById('myModalentrada').style.display = 'none';
+}
 
 
+    
     
 
   
