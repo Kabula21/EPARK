@@ -1,0 +1,23 @@
+@media screen and (max-width: 1220px) {
+    .container1, .background { 
+        margin: 0 auto;
+       }
+}
+
+@media screen and (max-width: 500px) {
+   .celular{
+    display: block;
+   }
+   .justify-center1, .justify-center2023, .texto, #rodape {
+    display: none;
+   }
+   .background{
+    background: none;
+   }
+
+   .container1 { 
+    margin: 0 auto;
+   }
+
+
+} 
