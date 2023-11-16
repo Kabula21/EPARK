@@ -4,9 +4,11 @@
   margin: 0;
   padding: 0;
   font-family: 'Roboto', sans-serif; 
+  max-width: 1220px;
 }
 
 body {
+  max-width: 1220px;
   background-image: url("../images/background2.png");
   background-repeat: no-repeat;
   background-size: cover;
@@ -16,10 +18,10 @@ body {
 .texto{
   position:static;
   display:flex;
-  justify-content: center;
+  justify-content:right;
   margin-left: 300px;
   margin-top: -550px;
-  width: 1500px;
+  /* width: 1500px; */
   font-size: 70px;
   font-family:'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
   text-shadow: 5px 5px 10px rgba(16, 1, 146, 0.151);

@@ -1,7 +1,11 @@
 @media screen and (max-width: 1220px) {
-    .container1, .background { 
+    .container1, .background{ 
         margin: 0 auto;
+        justify-content:center;
        }
+    .texto{
+        display: none;
+    }
 }
 
 @media screen and (max-width: 500px) {
@@ -15,9 +19,8 @@
     background: none;
    }
 
-   .container1 { 
+   .container1{ 
     margin: 0 auto;
    }
-
 
 } 
