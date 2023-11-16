@@ -4,7 +4,6 @@ function logar(){
   var senha = document.getElementById('senha').value;
 
   if(login == "admin" && senha == "admin"){
-    alert('sucesso');
     location.href ="./page2.html";
   }
   else{
@@ -13,22 +12,28 @@ function logar(){
 
 }
 
-// MODAL DE RELATORIO //
-function openModalrelatorio() {
-  var modal = document.getElementById("modal");
-  modal.style.display = "block";
-}
+// // MODAL DE RELATORIO //
+// function openModalrelatorio() {
+//   var modal = document.getElementById("modal");
+//   modal.style.display = "block";
 
-function closeModal() {
-  var modal = document.getElementById("modal");
-  modal.style.display = "none";
-}
+//   window.addEventListener('click', function (event) {
+//     if (event.target === modal) {
+//         modal.style.display = 'none';
+//     }
+//   });
+// }
 
-// FUNÇÃO DE IMPRIMIR
-document.getElementById("printButton").addEventListener("click", function() {
-  window.print(); // Chame a função de impressão quando o botão for clicado
-});
+// function closeModal() {
+//   var modal = document.getElementById("modal");
+//   modal.style.display = "none";
+// }
 
+// // FUNÇÃO DE IMPRIMIR
+// document.getElementById("printButton").addEventListener("click", function() {
+//   window.print(); // Chame a função de impressão quando o botão for clicado
+
+// });
 
 window.addEventListener("load", () => {
   const loader = document.querySelector(".loader");

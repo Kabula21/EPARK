@@ -1,6 +1,3 @@
-
-
-
     const veiculosEstacionados = {}; // Lista que irá conter todos os veículos estacionados.
     let vagasOcupadas = 0;           // Variável que irá contar o n° de vagas ocupadas.
     const totalVagas = 5;            // Variável do total de vagas do estacionamento.
@@ -10,23 +7,24 @@
     
     //Função para sempre atualizar a contagem de veículos (alterar valores no painel principal).
     function atualizarContagem() {
-      var ocupadas = `${'Vagas Ocupadas: ' + vagasOcupadas}`;
+      var ocupadas = `${'<strong>Vagas Ocupadas: ' + vagasOcupadas}`;
       document.getElementById('vagasOcupadas').innerHTML = ocupadas;
   
-      var livres = `${'Vagas Livres: ' + vagasLivres}`;
+      var livres = `${'<strong>Vagas Livres: ' + vagasLivres}`;
       document.getElementById('vagasLivres').innerHTML = livres;
   
-      var total = `${'Total de Vagas: ' + totalVagas}`;
+      var total = `${'<strong>Total de Vagas: ' + totalVagas}`;
       document.getElementById('totalVagas').innerHTML = total;
   
-      var entrada = `${'Total Entradas: ' + entradas}`;
+      var entrada = `${'<strong>Total Entradas: ' + entradas}`;
       document.getElementById('entradas').innerHTML = entrada;
   
-      var saida = `${'Total Saídas: ' + saidas}`;
+      var saida = `${'<strong>Total Saídas: ' + saidas}`;
       document.getElementById('saidas').innerHTML = saida;
 
       var horaEntradaFormatada = `${horaEntradaFormatada}`;
       document.getElementById('horaEntradaFormatada').innerHTML = horaEntradaFormatada;
+
     }
 
     // Espera até que o DOM esteja completamente carregado
@@ -59,8 +57,22 @@
     function closeModalentrada() {
         // Feche o modal
         document.getElementById('myModalentrada').style.display = 'none';
+        // Apagar o conteúdo do campo placaEntrada e Observações
+        document.getElementById('placaEntrada').value = '';
+        document.getElementById('observacoesEntrada').value = '';
     }
-    
+
+    //formatar Data e Hora.
+    function formatarDataHora(timestamp) {  //Função para formatar a data e hora.
+      const dataHora = new Date(timestamp);
+      const dia = dataHora.getDate().toString().padStart(2, '0');
+      const mes = (dataHora.getMonth() + 1).toString().padStart(2, '0');
+      const ano = dataHora.getFullYear();
+      const horas = dataHora.getHours().toString().padStart(2, '0');
+      const minutos = dataHora.getMinutes().toString().padStart(2, '0');
+      return `${dia}/${mes}/${ano} - ${horas}:${minutos}`;
+  }
+
     // Função para atualizar e formatar(dia/mês/ano Horas:Minutos:Segundos) a Data e Hora do sistema.
     function atualizarDataHora() {
         const elementoDataHora = document.getElementById('dataHora');
@@ -77,11 +89,17 @@
         elementoDataHora.textContent = dataHoraFormatada;
     }
 
-
     //Implementação da regra de negócio do registro de entrada
     document.getElementById('registrarEntrada').addEventListener('click', () => {
+      
         if (vagasOcupadas < totalVagas) {
             const placaEntrada = document.getElementById('placaEntrada').value;
+
+            // Verificar se o campo placaEntrada está vazio
+          if (placaEntrada.trim() === '') {
+          alert('Por favor, preencha a placa do veículo.');
+          return; // Interrompe a execução do código
+          }
             const horaEntrada = new Date();
             const observacoesEntrada = document.getElementById('observacoesEntrada').value; // Obter as observações
     
@@ -96,46 +114,70 @@
                 vagasLivres--;
                 entradas++;
                 alert('Veículo registrado com sucesso.');
+                
+                setTimeout(function() {
+                  // Apagar o conteúdo do campo placaEntrada e Observações após 20 segundos.
+                  document.getElementById('placaEntrada').value = '';
+                  document.getElementById('observacoesEntrada').value = '';
+                }, 20000);
+            
             }
+            
         } else {
             alert('Estacionamento lotado. Não é possível registrar entrada.');
         }
     });
+
+
+
+
+   //Implementação da regra de negócio do registro de saída
+    document.getElementById('registrarSaida').addEventListener('click', () => {
+      const placaSaida = document.getElementById('placaSaida').value;
+
+      // Verificar se o campo está vazio
+    if (placaSaida.trim() === '') {
+    alert('Por favor, insira a placa do veículo.');
+    return; // Abortar a execução do código se o campo estiver vazio
+    }
+
+
+      if (veiculosEstacionados[placaSaida]) {
+        const horaSaida = new Date().getTime();
+        const tempoEstacionado = (horaSaida - veiculosEstacionados[placaSaida].horaEntrada) / 3600000;
+        const valorEstacionamento = tempoEstacionado * 10;
     
+        const horaEntradaFormatada = formatarDataHora(veiculosEstacionados[placaSaida].horaEntrada);
+        const horaSaidaFormatada = formatarDataHora(horaSaida);
 
+        //Exibir informações adicionais
+        const informacoesAdicionais = veiculosEstacionados[placaSaida].informacoesAdicionais;
+        if (valorEstacionamento > 1) {
+          const resultado = `<b>Placa:</b> ${placaSaida}<br><b>Hora de Entrada:</b><br>${horaEntradaFormatada}<br><b>Hora de Saída:</b><br>${horaSaidaFormatada}<br><b>Tempo Estacionado (horas):</b><br>${tempoEstacionado.toFixed(2)}<br><b>Valor a pagar:</b><br>R$ ${valorEstacionamento.toFixed(2)}<br><b>Informações Adicionais:</b><br>${informacoesAdicionais}`;
+          document.getElementById('resultado').innerHTML = resultado;
+          
+        } else {
+          const resultado = `<b>Placa:</b> ${placaSaida}<br><b>Hora de Entrada:</b><br>${horaEntradaFormatada}<br><b>Hora de Saída:</b><br>${horaSaidaFormatada}<br><b>Tempo Estacionado (horas):</b><br>${tempoEstacionado.toFixed(2)}<br><b>Valor a pagar:</b><br>R$ 0.00<br><b>Informações Adicionais:</b><br>${informacoesAdicionais}`;
+          document.getElementById('resultado').innerHTML = resultado;
+          
+        }
+        
+        delete veiculosEstacionados[placaSaida];
+        vagasOcupadas--;
+        vagasLivres++;
+        saidas++;
 
+        // Apagar o conteúdo do campo placaEntrada.
+        document.getElementById('placaSaida').value = '';
+      } 
+      else {
+        alert('Veículo não encontrado no estacionamento.');
 
+        // Apagar o conteúdo do campo placaEntrada.
+        document.getElementById('placaSaida').value = '';
+      }
 
-
-
-// Função para Abrir e configurar modal de Impressão de ENTRADA.
-function openModalsaida() {
-    // Antes de abrir o modal, atualize a data e hora
-    atualizarDataHora();
-
-    // Obtenha os valores do formulário
-    const placa = document.getElementById('placaEntrada').value;
-    const observacoes = document.getElementById('observacoesEntrada').value;
-
-    // Atualize os elementos no modal
-    document.getElementById('modalPlacaEntrada').textContent = `Placa: ${placa}`;
-    document.getElementById('modalDataHora').textContent = `Data e Hora: ${document.getElementById('dataHora').textContent}`;
-    document.getElementById('modalObservacoesEntrada').textContent = `Observações: ${observacoes}`;
-
-    // Abra o modal
-    document.getElementById('myModalentrada').style.display = 'block';
-}
-
-// Função para fechar e configurar modal de Impressão de ENTRADA.
-function closeModalsaida() {
-    // Feche o modal
-    document.getElementById('myModalentrada').style.display = 'none';
-}
-
-
-    
-    
-
+    });
   
   
     

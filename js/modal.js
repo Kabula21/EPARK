@@ -19,52 +19,69 @@ function closeModalentrada() {
     var modal = document.getElementById("myModalentrada");
     modal.style.display = "none";
 }
-
-
-
-// Function Entrada
-function openModal2(modalId, placaEntrada, placaSaida, dataHoraEntrada, dataHoraSaida, modalObservacoesEntrada, tempoEstacionado, valorPagar, content) {
-    var modal = document.getElementById(modalId);
-    var placaEntradaValue = document.getElementById(placaEntrada).value;
-    var placaSaidaValue = document.getElementById(placaSaida).value;
-    var dataHoraEntradaValue = document.getElementById(dataHoraEntrada).value;
-    var dataHoraSaidaValue = document.getElementById(dataHoraSaida).value;
-    var modalObservacoesEntradaElement = document.getElementById(modalObservacoesEntrada).value; 
-    var tempoEstacionadoElement = document.getElementById(tempoEstacionado).value; 
-    var valorPagarElement = document.getElementById(valorPagar).value; 
-    var contentElement = document.getElementById(content);
-
-    contentElement.innerHTML = "modalObservacoesEntrada:" + modalObservacoesEntradaElement + "<br>Placa Entrada: " + placaEntradaValue + "<br>Placa Saída: " + placaSaidaValue + "<br>Data e Hora Entrada: " + dataHoraEntradaValue + "<br>Data e Hora Saída: " + dataHoraSaidaValue + "<br>Tempo Estacionado: " + tempoEstacionadoElement + "<br>Valor a Pagar: " + valorPagarElement;
-
-    modal.style.display = "block";
-}
-
-// Function Saída
-function openModalsaida() {
-    openModal2("myModalsaida", "placaEntrada", "placaSaida", "dataHoraentrada", "dataHorasaida", "modalObservacoesEntrada", "tempoEstacionado", "valorPagar", "content");
-}
-
-function closeModalsaida() {
-    var modal = document.getElementById("myModalsaida");
-    modal.style.display = "none";
-}
-
-
-
-
-
-
-
-
-
-
-
-
-// BOTÃO DE IMPRIMIR
+// BOTÃO DE IMPRIMIR ENTRADA
 document.getElementById("printButtonentrada").addEventListener("click", function() {
     window.print(); // Chame a função de impressão quando o botão for clicado
 });
 
-document.getElementById("printButtonsaida2").addEventListener("click", function() {
-    window.print(); // Chame a função de impressão quando o botão for clicado
-});
+// // BOTÃO DE IMPRIMIR SAÍDA
+// document.getElementById("printButtonsaida").addEventListener("click", function() {
+//     window.print(); // Chame a função de impressão quando o botão for clicado
+// });
+
+//IMPRIMI O RELATÓRIO GERAL
+document.getElementById("printButton").addEventListener("click", function() {
+
+    // Selecione a área que você deseja imprimir
+    var areaParaImprimir = document.getElementById("relatorio");
+  
+    // Use html2canvas para converter a área em uma imagem
+    html2canvas(areaParaImprimir).then(function(canvas) {
+      // Crie um elemento de imagem com a imagem convertida
+      var imagemParaImprimir = new Image();
+      imagemParaImprimir.src = canvas.toDataURL("image/png");
+  
+      // Abra uma nova janela e coloque a imagem nela
+      var janelaImprimir = window.open();
+      janelaImprimir.document.write('<html><head><title>Imprimir</title></head><body><h1 style="margin-left:0px ; margin-bottom: 20px; color: #272262">Relatório Geral</h1></body>');
+      janelaImprimir.document.write('<img src="' + imagemParaImprimir.src + '" style="width:100%;">');
+      janelaImprimir.document.write('</body></html>');
+      janelaImprimir.document.close();
+  
+      // Aguarde até que a imagem seja carregada antes de imprimir
+      imagemParaImprimir.onload = function() {
+        janelaImprimir.print();
+        janelaImprimir.onafterprint = function() {
+        janelaImprimir.close();
+        };
+      };
+    });
+  });
+
+  //IMPRIMI O RELATÓRIO SAÍDA
+document.getElementById("printButtonsaida").addEventListener("click", function() {
+    // Selecione a área que você deseja imprimir
+    var areaParaImprimir = document.getElementById("relatorioSaida");
+  
+    // Use html2canvas para converter a área em uma imagem
+    html2canvas(areaParaImprimir).then(function(canvas) {
+      // Crie um elemento de imagem com a imagem convertida
+      var imagemParaImprimir = new Image();
+      imagemParaImprimir.src = canvas.toDataURL("image/png");
+  
+      // Abra uma nova janela e coloque a imagem nela
+      var janelaImprimir = window.open();
+      janelaImprimir.document.write('<html><head><title>Saída</title></head><body><h1 style="margin-left:50px ; margin-bottom: 20px; color: #272262">SAÍDA</h1></body>');
+      janelaImprimir.document.write('<img src="' + imagemParaImprimir.src + '"style="width:30%;">');
+      janelaImprimir.document.write('</body></html>');
+      janelaImprimir.document.close();
+  
+      // Aguarde até que a imagem seja carregada antes de imprimir
+      imagemParaImprimir.onload = function() {
+        janelaImprimir.print();
+        janelaImprimir.onafterprint = function() {
+          janelaImprimir.close();
+        };
+      };
+    });
+  });
