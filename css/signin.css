@@ -254,7 +254,7 @@ button:hover{
 }
 
 .justify-center{
-  margin-top: 20%;
+  margin-top: 50%;
   margin-left: 5%;
 }
 
@@ -320,16 +320,14 @@ a:hover{
 
 #footer_copyright {
   position: fixed;
-  justify-content: center;
   font-size: 15px;
 	color: #000000;	
 	font-weight: 100px;
   margin-top: 340px;
   margin-left: 650px;
   bottom: 0;
-  
-  
 }
+
 #rodape{
   position: fixed;
   bottom: 0;

@@ -4,7 +4,8 @@
     let vagasLivres = totalVagas;    // Variável do total de vagas livres.
     let saidas = 0;                  // Variável do total de saídas.
     let entradas = 0;                // Variável do total de entradas.
-    
+    let totalValorCaixa = 0.00;         // Variável para armazenar o valor total a pagar.
+
     //Função para sempre atualizar a contagem de veículos (alterar valores no painel principal).
     function atualizarContagem() {
       var ocupadas = `${'<strong>Vagas Ocupadas: ' + vagasOcupadas}`;
@@ -21,6 +22,9 @@
   
       var saida = `${'<strong>Total Saídas: ' + saidas}`;
       document.getElementById('saidas').innerHTML = saida;
+
+      const valorTotalCaixa = `<strong>Valor Total no Caixa: R$ ${totalValorCaixa.toFixed(2)}</strong>`;
+      document.getElementById('valorTotalCaixa').innerHTML = valorTotalCaixa;
 
       var horaEntradaFormatada = `${horaEntradaFormatada}`;
       document.getElementById('horaEntradaFormatada').innerHTML = horaEntradaFormatada;
@@ -114,6 +118,8 @@
                 vagasLivres--;
                 entradas++;
                 alert('Veículo registrado com sucesso.');
+                // Atualiza o valor total no caixa
+                totalValorCaixa += 0.00;
                 
                 setTimeout(function() {
                   // Apagar o conteúdo do campo placaEntrada e Observações após 20 segundos.
@@ -129,13 +135,11 @@
     });
 
 
-
-
    //Implementação da regra de negócio do registro de saída
     document.getElementById('registrarSaida').addEventListener('click', () => {
       const placaSaida = document.getElementById('placaSaida').value;
 
-      // Verificar se o campo está vazio
+      // Verificar se o campo placa entrada está vazio
     if (placaSaida.trim() === '') {
     alert('Por favor, insira a placa do veículo.');
     return; // Abortar a execução do código se o campo estiver vazio
@@ -143,21 +147,39 @@
 
 
       if (veiculosEstacionados[placaSaida]) {
+        const valorPagar = 0.00;
         const horaSaida = new Date().getTime();
         const tempoEstacionado = (horaSaida - veiculosEstacionados[placaSaida].horaEntrada) / 3600000;
-        const valorEstacionamento = tempoEstacionado * 10;
+        const valorBase = 10.00;
+        const valorAdicional = 3.00 * Math.ceil((tempoEstacionado - 1.00) / 1.0); // 3 reais por hora adicional
     
         const horaEntradaFormatada = formatarDataHora(veiculosEstacionados[placaSaida].horaEntrada);
         const horaSaidaFormatada = formatarDataHora(horaSaida);
 
-        //Exibir informações adicionais
+        //Exibir informações
         const informacoesAdicionais = veiculosEstacionados[placaSaida].informacoesAdicionais;
-        if (valorEstacionamento > 1) {
-          const resultado = `<b>Placa:</b> ${placaSaida}<br><b>Hora de Entrada:</b><br>${horaEntradaFormatada}<br><b>Hora de Saída:</b><br>${horaSaidaFormatada}<br><b>Tempo Estacionado (horas):</b><br>${tempoEstacionado.toFixed(2)}<br><b>Valor a pagar:</b><br>R$ ${valorEstacionamento.toFixed(2)}<br><b>Informações Adicionais:</b><br>${informacoesAdicionais}`;
+
+        if (tempoEstacionado <= 0.10) {
+          const resultado = `<b>Placa:</b> ${placaSaida}<br><b>Hora de Entrada:</b><br>${horaEntradaFormatada}<br><b>Hora de Saída:</b><br>${horaSaidaFormatada}<br><b>Tempo Estacionado (horas):</b><br>${tempoEstacionado.toFixed(2)}<br><b>Valor a pagar:</b><br>R$ 0.00<br><b>Informações Adicionais:</b><br>${informacoesAdicionais}`;
+          document.getElementById('resultado').innerHTML = resultado;
+        }
+
+        if (tempoEstacionado > 0.10 && tempoEstacionado <= 0.30) {
+          const resultado = `<b>Placa:</b> ${placaSaida}<br><b>Hora de Entrada:</b><br>${horaEntradaFormatada}<br><b>Hora de Saída:</b><br>${horaSaidaFormatada}<br><b>Tempo Estacionado (horas):</b><br>${tempoEstacionado.toFixed(2)}<br><b>Valor a pagar:</b><br>R$ 7.00<br><b>Informações Adicionais:</b><br>${informacoesAdicionais}`;
           document.getElementById('resultado').innerHTML = resultado;
           
-        } else {
-          const resultado = `<b>Placa:</b> ${placaSaida}<br><b>Hora de Entrada:</b><br>${horaEntradaFormatada}<br><b>Hora de Saída:</b><br>${horaSaidaFormatada}<br><b>Tempo Estacionado (horas):</b><br>${tempoEstacionado.toFixed(2)}<br><b>Valor a pagar:</b><br>R$ 0.00<br><b>Informações Adicionais:</b><br>${informacoesAdicionais}`;
+        } if (tempoEstacionado > 0.30 && tempoEstacionado <= 1.00)  {
+          const resultado = `<b>Placa:</b> ${placaSaida}<br><b>Hora de Entrada:</b><br>${horaEntradaFormatada}<br><b>Hora de Saída:</b><br>${horaSaidaFormatada}<br><b>Tempo Estacionado (horas):</b><br>${tempoEstacionado.toFixed(2)}<br><b>Valor a pagar:</b><br>R$ 10.00<br><b>Informações Adicionais:</b><br>${informacoesAdicionais}`;
+          document.getElementById('resultado').innerHTML = resultado;
+          
+        }
+        if (tempoEstacionado > 1.00 && tempoEstacionado <= 1.30)  {
+          const resultado = `<b>Placa:</b> ${placaSaida}<br><b>Hora de Entrada:</b><br>${horaEntradaFormatada}<br><b>Hora de Saída:</b><br>${horaSaidaFormatada}<br><b>Tempo Estacionado (horas):</b><br>${tempoEstacionado.toFixed(2)}<br><b>Valor a pagar:</b><br>R$ 15.00<br><b>Informações Adicionais:</b><br>${informacoesAdicionais}`;
+          document.getElementById('resultado').innerHTML = resultado;
+          
+        }
+        if (tempoEstacionado > 1.30)  {
+          const resultado = `<b>Placa:</b> ${placaSaida}<br><b>Hora de Entrada:</b><br>${horaEntradaFormatada}<br><b>Hora de Saída:</b><br>${horaSaidaFormatada}<br><b>Tempo Estacionado (horas):</b><br>${tempoEstacionado.toFixed(2)}<br><b>Valor a pagar:</b><br>R$ ${(valorBase + valorAdicional).toFixed(2)}<br><b>Informações Adicionais:</b><br>${informacoesAdicionais}`;
           document.getElementById('resultado').innerHTML = resultado;
           
         }
@@ -166,14 +188,17 @@
         vagasOcupadas--;
         vagasLivres++;
         saidas++;
+        // Atualiza o valor total no caixa
+        totalValorCaixa += valorPagar;
+        
 
-        // Apagar o conteúdo do campo placaEntrada.
+        // Apagar o conteúdo do campo placa Saida.
         document.getElementById('placaSaida').value = '';
       } 
       else {
         alert('Veículo não encontrado no estacionamento.');
 
-        // Apagar o conteúdo do campo placaEntrada.
+        // Apagar o conteúdo do campo placa Saida.
         document.getElementById('placaSaida').value = '';
       }
 
